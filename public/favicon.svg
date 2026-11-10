@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="48" fill="#0f172a"/>
+  <!-- Outer Flame -->
+  <path d="M136,24C136,24,80,84,80,140a56,56,0,0,0,112,0C192,96,152,60,136,24Z" fill="#ea580c"/>
+  <!-- Inner Flame Core -->
+  <path d="M136,88c0,0-28,32-28,60a28,28,0,0,0,56,0C164,124,144,106,136,88Z" fill="#facc15"/>
+</svg>

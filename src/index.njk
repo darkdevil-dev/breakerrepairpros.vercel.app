@@ -1,0 +1,220 @@
+---
+layout: layout.njk
+title: "HVAC Experts Pros | Reliable Local Heating & Furnace Repair Services"
+description: "Connect with certified, local heating & HVAC technicians for fast furnace repairs, seasonal maintenance, boiler service, and 24/7 emergency heating support nationwide."
+---
+
+{# ── JSON-LD Schemas ────────────────────────────────────────────────────── #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.BRAND }}",
+  "alternateName": ["HVAC Experts Pros", "HVAC Experts Pro", "HVAC Experts"],
+  "url": "{{ site.DOMAIN }}/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "{{ site.BRAND }}",
+  "alternateName": ["HVAC Experts Pros", "HVAC Experts Pro", "HVAC Experts"],
+  "url": "{{ site.DOMAIN }}/",
+  "image": "{{ site.DOMAIN }}/favicon.svg",
+  "telephone": "{{ site.PHONE }}",
+  "priceRange": "$$",
+  "logo": "{{ site.DOMAIN }}/favicon.svg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "{{ site.PHONE }}",
+    "contactType": "customer service",
+    "areaServed": "US",
+    "availableLanguage": "en"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.DOMAIN }}/" }
+  ]
+}
+</script>
+
+{# ── Service Icon Map ──────────────────────────────────────────────────── #}
+{% set serviceIcons = {
+  'furnace-repair': 'ph-flame',
+  'furnace-installation': 'ph-gear',
+  'emergency-heating-repair': 'ph-siren',
+  'heating-tuneup-maintenance': 'ph-wrench',
+  'heat-pump-repair': 'ph-arrows-clockwise',
+  'boiler-repair-service': 'ph-drop',
+  'thermostat-repair-replacement': 'ph-thermometer',
+  'ductless-mini-split': 'ph-wind',
+  'air-duct-cleaning-repair': 'ph-fan',
+  'indoor-air-quality': 'ph-sparkle',
+  'gas-furnace-inspection': 'ph-shield-check',
+  'commercial-hvac-services': 'ph-buildings'
+} %}
+
+{# ── Banner ────────────────────────────────────────────────────────────── #}
+
+<div class="rs-banner">
+  <div class="banner-bg">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/assets/images/mobile_hero.webp">
+      <img src="/assets/images/global_hero.webp" alt="Certified Heating and Furnace Technicians" width="1200" height="800" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="container" style="position:relative; z-index:3">
+    <div class="banner-content-centered">
+      <div class="sub-label">
+        <span class="live-dot"></span> Certified Heating &amp; Furnace Specialists Nationwide
+      </div>
+      <h1 class="title">Professional Heating &amp; Furnace <span>Repair Services</span></h1>
+      <p class="description">
+        Prompt, dependable heating service from licensed independent HVAC contractors. From 24/7 emergency winter furnace repairs to seasonal tune-ups and system replacements, we help keep your home warm, safe, and comfortable.
+      </p>
+      <div class="btn-part" style="justify-content:center; margin-top:36px;">
+        <a class="readon red-btn" href="{{ site.PHONE_HREF }}" aria-label="Call for service">
+          <i class="ph ph-phone-call" style="font-size:20px"></i>
+          <span>{{ site.PHONE }}</span>
+        </a>
+      </div>
+      <div class="hero-trust-bar">
+        <div class="trust-item"><i class="ph ph-shield-check"></i> Licensed &amp; Screened Technicians</div>
+        <div class="trust-item"><i class="ph ph-clock"></i> 24/7 Rapid Emergency Dispatch</div>
+        <div class="trust-item"><i class="ph ph-receipt"></i> Upfront &amp; Transparent Estimates</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Counter ───────────────────────────────────────────────────────────── #}
+<div class="rs-counter">
+  <div class="container">
+    <div class="counter-grid">
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon"><i class="ph ph-shield-check" style="font-size:26px;color:#fbbf24"></i></div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">100</span><span class="prefix">%</span></div>
+            <h5 class="title">Licensed &amp; Insured Network</h5>
+          </div>
+        </div>
+      </div>
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon"><i class="ph ph-clock" style="font-size:26px;color:#fbbf24"></i></div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">24</span><span class="prefix">/7</span></div>
+            <h5 class="title">Emergency Dispatch Ready</h5>
+          </div>
+        </div>
+      </div>
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon"><i class="ph ph-map-pin" style="font-size:26px;color:#fbbf24"></i></div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">50</span><span class="prefix">States</span></div>
+            <h5 class="title">Nationwide Service Coverage</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Services Grid ─────────────────────────────────────────────────────── #}
+<div class="rs-services">
+  <div class="container">
+    <h2>Comprehensive Heating &amp; Furnace Solutions</h2>
+    <div class="services-row">
+      {% for svc in services %}
+      <div class="services-slider">
+        <div class="services-item">
+          <a href="/services/{{ svc.slug }}/" class="card-link" aria-label="View {{ svc.title }}"></a>
+          
+          {% if svc.image %}
+          <div class="services-card-img">
+            <img src="/assets/images/{{ svc.image }}" alt="{{ svc.title }}" loading="lazy">
+          </div>
+          {% endif %}
+          <div class="services-icon-bar">
+            <div class="svc-icon">
+              <i class="ph {{ serviceIcons[svc.slug] or 'ph-flame' }}"></i>
+            </div>
+          </div>
+          <div class="services-content">
+            <h3 class="title">
+              <a href="/services/{{ svc.slug }}/">{{ svc.title }}</a>
+            </h3>
+            <p class="description">
+              {{ svc.description }}
+            </p>
+            <div class="services-btn">
+              <a href="/services/{{ svc.slug }}/">
+                <span class="btn-text">Learn More</span>
+                <span class="arrow-icon">
+                  <i class="ph ph-arrow-right" style="font-size:12px"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ── States / USA Map ──────────────────────────────────────────────────── #}
+<div class="rs-addon-services">
+  <div class="container">
+    <h2>
+      <i class="ph ph-map-trifold" style="font-size:28px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
+      Heating &amp; Furnace Specialists Across the United States
+    </h2>
+
+    <div class="interactive-usa-map">
+      {% include "usa-map.njk" %}
+    </div>
+
+    <div class="addon-row">
+      {% for st in states %}
+      <a href="/{{ st.slug }}/" class="addon-item" style="text-decoration:none">
+        <div class="services-text">
+          <div class="services-title">
+            <i class="ph ph-map-pin" style="font-size:13px;color:var(--primary);flex-shrink:0"></i>
+            <h3>{{ st.name }}</h3>
+          </div>
+          <div class="location-meta">
+            <i class="ph ph-buildings" style="font-size:11px"></i>
+            {{ st.abbr }} · {{ st.cities.length }} cities
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ── CTA Strip ─────────────────────────────────────────────────────────── #}
+<div class="cta-strip">
+  <div class="container">
+    <h2>Need Immediate Heating Repairs or Maintenance?</h2>
+    <p>Connect with a qualified independent HVAC technician in your local area for prompt diagnostic and repair service.</p>
+    <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
+      <i class="ph ph-phone-call" style="font-size:18px"></i>
+      Call For Immediate Assistance: {{ site.PHONE }}
+    </a>
+  </div>
+</div>
+
+<script>
+  // If the user navigates back to the homepage, clear their contextual location
+  localStorage.removeItem('userLoc');
+</script>

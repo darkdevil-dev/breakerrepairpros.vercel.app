@@ -1,0 +1,291 @@
+---
+layout: layout.njk
+title: "About Our Nationwide Network of Licensed Heating & Furnace Specialists"
+description: "Learn about HVAC Experts Pros and our nationwide network of licensed HVAC technicians. 24/7 emergency furnace repair, heating maintenance, and installations."
+permalink: "about/index.html"
+---
+
+{# ——— Schemas —————————————————————————————————————————————————————————— #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "{{ site.BRAND }} - About Us",
+  "url": "{{ site.DOMAIN }}/about/",
+  "image": "{{ site.DOMAIN }}/favicon.svg",
+  "telephone": "{{ site.PHONE }}",
+  "priceRange": "$$"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.DOMAIN }}/" },
+    { "@type": "ListItem", "position": 2, "name": "About Us", "item": "{{ site.DOMAIN }}/about/" }
+  ]
+}
+</script>
+
+{# ── Breadcrumb #}
+<div class="breadcrumb-bar">
+  <div class="container">
+    <div class="bc-inner">
+      <i class="ph ph-house" style="font-size:13px"></i>
+      <a href="/">Home</a>
+      <span class="bc-sep">›</span>
+      <span>About Us</span>
+    </div>
+  </div>
+</div>
+
+{# ── About Hero #}
+<div class="about-hero">
+  <div class="container">
+    <div class="about-hero-grid">
+      <div class="about-hero-content">
+        <span class="sub-label">
+          <span class="live-dot"></span> About Our Service
+        </span>
+        <h1>Nationwide <span>Heating &amp; Furnace</span> Specialist Network</h1>
+        <p>When unexpected heating failures occur during cold weather, prompt service is essential. {{ site.BRAND }} connects homeowners and property managers with certified, independent local HVAC and furnace contractors across all 50 states — reliable, professional, and available 24/7.</p>
+        <div class="about-hero-stats">
+          <div class="ah-stat">
+            <strong>100%</strong>
+            <span>Licensed &amp; Insured</span>
+          </div>
+          <div class="ah-stat">
+            <strong>24/7</strong>
+            <span>Emergency Dispatch</span>
+          </div>
+          <div class="ah-stat">
+            <strong>50</strong>
+            <span>States Covered</span>
+          </div>
+          <div class="ah-stat">
+            <strong>Fast</strong>
+            <span>Same-Day Service</span>
+          </div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
+          <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
+            <i class="ph ph-phone-call" style="font-size:17px"></i>
+            {{ site.PHONE }}
+          </a>
+          <a class="readon-outline" href="/contact/">
+            <i class="ph ph-envelope" style="font-size:17px"></i>
+            Contact Us
+          </a>
+        </div>
+      </div>
+      <div class="about-hero-img">
+        <img src="/assets/images/global_hero.webp" alt="Certified HVAC technician inspecting furnace burner — HVAC Experts Pros nationwide network" width="800" height="600" loading="lazy" decoding="async">
+        <div class="about-badge">
+          <i class="ph ph-certificate" style="font-size:28px;color:var(--primary)"></i>
+          <div>
+            <strong>NATE-Certified</strong>
+            <span>& Fully Insured</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Trust Strip #}
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="ph ph-certificate" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>Licensed & EPA Certified</strong>
+          <span>Every HVAC technician fully vetted and certified</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="ph ph-clock-countdown" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>Rapid Winter Dispatch</strong>
+          <span>Fast emergency heating response anywhere in the USA</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="ph ph-tag" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>Upfront Flat-Rate Pricing</strong>
+          <span>Clear written quotes before repair work begins</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="ph ph-shield-check" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>100% Satisfaction Guarantee</strong>
+          <span>Heating repairs backed by warranty on parts and labor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Our Story #}
+<div class="about-story">
+  <div class="container">
+    <div class="about-story-grid">
+      <div>
+        <div class="sec-title4">
+          <div class="sub-line"></div>
+          <span class="sub-text">
+            <i class="ph ph-book-open" style="font-size:13px"></i>
+            Our Story
+          </span>
+          <h2>Built on a Simple Promise: Warmth & Safety When You Need It Most</h2>
+          <p>{{ site.BRAND }} was established with a singular mission — ensure no family or business is left in the dangerous cold during freezing weather. We recognize how critical, stressful, and hazardous a heating breakdown can be in the dead of winter, and we built the fastest dispatch network to solve it.</p>
+          <p>We enforce a rigorous verification standard so every technician in our network is licensed, bonded, insured, and certified with major furnace manufacturers. Rather than generic listings, our network mobilizes certified heating contractors operating fully stocked mobile service vans with igniters, blower motors, pressure switches, and gas valves ready on the first trip.</p>
+          <p>Today, {{ site.BRAND }} has assisted over 500,000 customers across all 50 states with everything from midnight gas furnace ignition repairs and cracked heat exchanger replacements to complete high-efficiency heat pump and commercial rooftop heating installations.</p>
+        </div>
+      </div>
+      <div class="about-values">
+        <div class="value-card">
+          <div class="value-icon"><i class="ph ph-target" style="font-size:26px;color:var(--primary)"></i></div>
+          <div>
+            <h4>Our Mission</h4>
+            <p>Connect every American homeowner and facility manager with verified, licensed heating and HVAC contractors — fast, fair, and reliable.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="ph ph-eye" style="font-size:26px;color:var(--primary)"></i></div>
+          <div>
+            <h4>Our Vision</h4>
+            <p>To stand as America's premier winter heating and HVAC service dispatch network — trusted for emergency response when temperatures plunge.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="ph ph-heart" style="font-size:26px;color:var(--primary)"></i></div>
+          <div>
+            <h4>Our Values</h4>
+            <p>Safety, honesty, technical excellence, and rapid response. We safeguard every home against freeze hazards and carbon monoxide risks.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="ph ph-check-circle" style="font-size:26px;color:var(--primary)"></i></div>
+          <div>
+            <h4>Our Standard</h4>
+            <p>EPA Section 608 and NATE compliant technicians. Thorough flue gas and CO testing, strict code compliance, and guaranteed workmanship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Why Choose Us — Process #}
+<div class="rs-process" style="background:var(--gray-bg)">
+  <div class="container">
+    <div class="sec-center">
+      <span class="sub-label"><i class="ph ph-list-numbers" style="font-size:12px"></i> How We Work</span>
+      <h2>Getting Heating & Furnace Help Has Never Been Easier</h2>
+      <p class="sec-desc">Three simple steps from your initial phone call to restored indoor warmth and safety.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="ph ph-phone-call" style="font-size:32px;color:var(--primary)"></i></div>
+        <h3>Call 24/7 Heating Dispatch</h3>
+        <p>Dial <a href="{{ site.PHONE_HREF }}" style="color:var(--primary);font-weight:700">{{ site.PHONE }}</a> any time of day or night. Our dispatch desk instantly locates the nearest available licensed HVAC technician equipped for your system.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="ph ph-magnifying-glass" style="font-size:32px;color:var(--primary)"></i></div>
+        <h3>Diagnostic & Firm Quote</h3>
+        <p>Your heating specialist inspects electrical controls, gas burners, safety switches, and heat exchangers, presenting an upfront flat-rate repair quote before starting.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="ph ph-wrench" style="font-size:32px;color:var(--primary)"></i></div>
+        <h3>Certified Repair & Safety Test</h3>
+        <p>We execute precision repairs using OEM-grade parts, perform carbon monoxide tests, verify full airflow and thermostat calibration, and restore cozy heat.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Services We Cover #}
+<div style="padding:80px 0;background:var(--white)">
+  <div class="container">
+    <div class="sec-center" style="margin-bottom:44px">
+      <span class="sub-label"><i class="ph ph-flame" style="font-size:12px"></i> Our Services</span>
+      <h2>Comprehensive Heating & HVAC Services Nationwide</h2>
+      <p class="sec-desc">From emergency furnace flame restoration to whole-home heating installations — we handle it all.</p>
+    </div>
+    <div class="about-services-grid">
+      <div class="about-svc-item">
+        <i class="ph ph-flame" style="font-size:28px;color:var(--primary)"></i>
+        <span>Furnace Repair & Service</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-fire" style="font-size:28px;color:var(--primary)"></i>
+        <span>Furnace Installation</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-siren" style="font-size:28px;color:var(--primary)"></i>
+        <span>Emergency Heating Repair</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-gear" style="font-size:28px;color:var(--primary)"></i>
+        <span>Heating Tune-Up & Check</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-arrows-clockwise" style="font-size:28px;color:var(--primary)"></i>
+        <span>Heat Pump Services</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-drop" style="font-size:28px;color:var(--primary)"></i>
+        <span>Boiler & Radiator Repair</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-thermometer" style="font-size:28px;color:var(--primary)"></i>
+        <span>Smart Thermostat Service</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-wind" style="font-size:28px;color:var(--primary)"></i>
+        <span>Ductless Mini-Splits</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-fan" style="font-size:28px;color:var(--primary)"></i>
+        <span>Air Duct Cleaning</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-sparkle" style="font-size:28px;color:var(--primary)"></i>
+        <span>Indoor Air Quality</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-shield-check" style="font-size:28px;color:var(--primary)"></i>
+        <span>Gas Furnace Inspection</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-buildings" style="font-size:28px;color:var(--primary)"></i>
+        <span>Commercial HVAC Heating</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a class="readon red-btn" href="/services/">
+        <i class="ph ph-arrow-right" style="font-size:17px"></i>
+        View All Heating Services
+      </a>
+    </div>
+  </div>
+</div>
+
+{# ── CTA #}
+<div class="cta-strip">
+  <div class="container">
+    <h2>Furnace Not Heating? Get Fast Emergency Service</h2>
+    <p>Our licensed HVAC technicians are standing by 24/7 with fully equipped mobile units. Same day heating service nationwide.</p>
+    <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
+      <i class="ph ph-phone-call" style="font-size:18px"></i>
+      {{ site.PHONE }} — Call Now Free
+    </a>
+  </div>
+</div>

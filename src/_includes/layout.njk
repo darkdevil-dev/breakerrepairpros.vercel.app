@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ (title | safe) if title else (site.BRAND + " | Reliable Heating & Furnace Repair Services") }}</title>
+  <meta name="description" content="{{ (description | safe) if description else 'Professional heating & furnace repair services nationwide. Connect with licensed technicians for 24/7 emergency repairs, seasonal tune-ups, boiler service, and heat pump maintenance.' }}">
+  <meta name="keywords" content="HVAC Experts Pros, Furnace Repair, Heating Services, Emergency Heating Repair, Heat Pump Service, Boiler Repair, Heating Contractor">
+
+  {# Canonical & SEO #}
+  <link rel="canonical" href="{{ site.DOMAIN }}{{ page.url }}">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="geo.region" content="US">
+  <meta name="geo.placename" content="United States">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <meta name="author" content="{{ site.BRAND }}">
+  <meta name="rating" content="general">
+  <meta name="distribution" content="global">
+
+  {# Favicons #}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+
+  {# Open Graph #}
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="{{ site.BRAND }}">
+  <meta property="og:title" content="{{ (title | safe) if title else (site.BRAND + ' | Reliable Heating & Furnace Repair Services') }}">
+  <meta property="og:description" content="{{ (description | safe) if description else 'Professional heating & furnace repair services nationwide. Connect with licensed technicians for 24/7 emergency repairs, seasonal tune-ups, boiler service, and heat pump maintenance.' }}">
+  <meta property="og:url" content="{{ site.DOMAIN }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.DOMAIN }}/assets/images/global_hero.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Professional HVAC Furnace Technician - {{ site.BRAND }}">
+
+  {# Twitter Card #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hvacexpertspros">
+  <meta name="twitter:title" content="{{ (title | safe) if title else (site.BRAND + ' | Reliable Heating & Furnace Repair Services') }}">
+  <meta name="twitter:description" content="{{ (description | safe) if description else 'Professional heating & furnace repair services nationwide. Connect with licensed technicians for 24/7 emergency repairs, seasonal tune-ups, boiler service, and heat pump maintenance.' }}">
+  <meta name="twitter:image" content="{{ site.DOMAIN }}/assets/images/global_hero.webp">
+
+  {# ── Critical Resource Hints (fire immediately, before HTML parsed) ── #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.clarity.ms">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"></noscript>
+  
+  {# Phosphor Icons CSS (100% reliable - Self Hosted) #}
+  <link rel="stylesheet" type="text/css" href="/assets/phosphor/regular/style.css">
+  
+  {# ── Critical Font Preload (Loads instantly with the website) ── #}
+  <link rel="preload" href="/assets/phosphor/regular/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+
+  {# ── Hero Image Preloads — browser starts downloading before CSS/JS ── #}
+  <link rel="preload" as="image" href="/assets/images/mobile_hero.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/global_hero.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high">
+
+  {# ── Inline Critical Stylesheet — zero render blocking ── #}
+  <style>{% inlinecss %}</style>
+
+  {# SiteNavigationElement Schema for Google Sitelinks #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.DOMAIN }}/#website",
+        "url": "{{ site.DOMAIN }}/",
+        "name": "{{ site.BRAND }}",
+        "alternateName": ["HVAC Experts Pros", "HVAC Experts Pro", "HVAC Experts", "Furnace Repair Pros USA"],
+        "description": "24/7 Emergency Furnace Repair & Heating Services Nationwide"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "{{ site.DOMAIN }}/#navigation",
+        "name": ["About Us", "Contact Us", "Services", "Privacy Policy", "Terms & Conditions"],
+        "url": [
+          "{{ site.DOMAIN }}/about/",
+          "{{ site.DOMAIN }}/contact/",
+          "{{ site.DOMAIN }}/services/",
+          "{{ site.DOMAIN }}/privacy-policy/",
+          "{{ site.DOMAIN }}/terms-conditions/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  {# JSON-LD Schemas injected from page data #}
+  {% if schemas %}
+    {% for schema in schemas %}
+      <script type="application/ld+json">{{ schema | dump | safe }}</script>
+    {% endfor %}
+  {% endif %}
+
+  {# ── Analytics (all deferred so they NEVER block page render) ── #}
+  {# Microsoft Clarity #}
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "y0029iq9sz");
+  </script>
+  {# Call Button Tracking for MS Clarity #}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var callButtons = document.querySelectorAll('a[href^="tel:"]');
+      callButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          if (typeof clarity === 'function') {
+            clarity("event", "CallButtonClick");
+          }
+        });
+      });
+    });
+  </script>
+
+  {# Google Analytics — async #}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QEE10Q0T6E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QEE10Q0T6E', { 'send_page_view': true });
+  </script>
+</head>
+<body>
+
+{# ── Services nav link now static since location is stored in localStorage ── #}
+{% set servicesLink = '/services/' %}
+
+{# ── Header ──────────────────────────────────────────────────────────── #}
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon" style="background:var(--primary)">
+          <i class="ph ph-flame" style="font-size:24px;color:#ffffff"></i>
+        </div>
+        <div class="logo-text">
+          <div class="brand" style="color:var(--text-dark)">{{ site.BRAND }}</div>
+          <div class="tagline" style="color:var(--text-body)">24/7 Furnace &amp; Heating Service</div>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="{{ servicesLink }}">Our Services</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li>
+            <a href="{{ site.PHONE_HREF }}" class="header-phone">
+              <i class="ph ph-phone-call" style="font-size:15px"></i>
+              {{ site.PHONE }}
+            </a>
+          </li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <i class="ph ph-list" style="font-size:28px;color:var(--text-dark)" id="mobileMenuIcon"></i>
+        </button>
+      </nav>
+    </div>
+  </div>
+  {# Mobile Menu #}
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="{{ servicesLink }}">Our Services</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li>
+        <a href="{{ site.PHONE_HREF }}" class="mobile-header-phone">
+          <i class="ph ph-phone-call" style="font-size:18px"></i>
+          {{ site.PHONE }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main>{{ content | safe }}</main>
+
+{# ── Footer ──────────────────────────────────────────────────────────── #}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="brand-name">
+          <i class="ph ph-flame" style="font-size:20px;color:var(--primary)"></i>
+          {{ site.BRAND }}
+        </div>
+        <p>Professional local furnace repair, heating maintenance, and emergency HVAC services across the United States.
+          Available same day and 24/7 for winter heating emergencies — furnace repairs, heating tune-ups, heat pump service, and boiler repairs.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+          <a href="#" class="social-link" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="/services/furnace-repair/"><i class="ph ph-flame"></i>Furnace Repair</a></li>
+          <li><a href="/services/emergency-heating-repair/"><i class="ph ph-siren"></i>Emergency Heating</a></li>
+          <li><a href="/services/heating-tuneup-maintenance/"><i class="ph ph-wrench"></i>Heating Tune-Up</a></li>
+          <li><a href="/services/furnace-installation/"><i class="ph ph-gear"></i>Furnace Install</a></li>
+          <li><a href="/services/heat-pump-repair/"><i class="ph ph-arrows-clockwise"></i>Heat Pump Service</a></li>
+          <li><a href="{{ servicesLink }}"><i class="ph ph-arrow-right"></i>View All Services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/"><i class="ph ph-house"></i>Home</a></li>
+          <li><a href="/about/"><i class="ph ph-info"></i>About Us</a></li>
+          <li><a href="/contact/"><i class="ph ph-chat-circle"></i>Contact</a></li>
+          <li><a href="{{ servicesLink }}"><i class="ph ph-briefcase"></i>Services</a></li>
+          <li><a href="{{ site.PHONE_HREF }}"><i class="ph ph-phone"></i>Call Now</a></li>
+          <li><a href="/privacy-policy/"><i class="ph ph-file-text"></i>Privacy Policy</a></li>
+          <li><a href="/terms/"><i class="ph ph-file-text"></i>Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Top Service Areas</h4>
+        <ul>
+          <li><a href="/texas/"><i class="ph ph-map-pin"></i>Texas</a></li>
+          <li><a href="/california/"><i class="ph ph-map-pin"></i>California</a></li>
+          <li><a href="/florida/"><i class="ph ph-map-pin"></i>Florida</a></li>
+          <li><a href="/new-york/"><i class="ph ph-map-pin"></i>New York</a></li>
+          <li><a href="/illinois/"><i class="ph ph-map-pin"></i>Illinois</a></li>
+          <li><a href="/pennsylvania/"><i class="ph ph-map-pin"></i>Pennsylvania</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item">
+          <span class="ci-icon"><i class="ph ph-phone-call"></i></span>
+          <p>
+            <a href="{{ site.PHONE_HREF }}">{{ site.PHONE }}</a><br>
+            <small style="color:rgba(255,255,255,0.35);font-size:10.5px">Same Day · 24/7 Emergency</small>
+          </p>
+        </div>
+        <div class="footer-contact-item">
+          <span class="ci-icon"><i class="ph ph-envelope"></i></span>
+          <p><a href="mailto:support@hvacexpertspros.link">support@hvacexpertspros.link</a></p>
+        </div>
+        <div class="footer-contact-item">
+          <span class="ci-icon"><i class="ph ph-clock"></i></span>
+          <p>Mon–Sun: Same Day Service<br>Emergency: 24/7 Available</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-disclaimer-box" style="margin: 28px 0 20px; padding: 16px 20px; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); text-align: center;">
+      <p style="font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.65; margin: 0;">
+        <strong>Service Disclaimer:</strong> {{ site.BRAND }} is an independent referral service that assists property owners in connecting with locally licensed, insured, and certified heating and HVAC contractors. All contractors operate independently, and {{ site.BRAND }} does not warrant or guarantee work performed. It is the responsibility of the customer to verify contractor licensing and credentials before service begins.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {{ site.YEAR }} {{ site.BRAND }}. All rights reserved.</p>
+      <p>
+        <a href="/privacy-policy/">Privacy Policy</a> ·
+        <a href="/terms/">Terms of Service</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+{# ── Floating Phone CTA ───────────────────────────────────────────────── #}
+<a href="{{ site.PHONE_HREF }}" class="float-phone" aria-label="Call us now">
+  <i class="ph ph-phone-call" style="font-size:24px;color:#fff"></i>
+</a>
+
+{# ── Phosphor Icons CDN ──────────────────────────────────────────────── #}
+<script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+{# ── Mobile Menu Script ──────────────────────────────────────────────── #}
+<script>
+(function () {
+  var btn = document.getElementById('mobileMenuBtn');
+  var menu = document.getElementById('mobileMenu');
+  var icon = document.getElementById('mobileMenuIcon');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function () {
+    var isOpen = menu.classList.toggle('open');
+    icon.className = isOpen ? 'ph ph-x' : 'ph ph-list';
+    icon.style.cssText = 'font-size:28px;color:var(--text-dark)';
+  });
+  // Close menu when any link inside is clicked
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.remove('open');
+      icon.className = 'ph ph-list';
+      icon.style.cssText = 'font-size:28px;color:var(--text-dark)';
+    });
+  });
+})();
+</script>
+
+{# ── FAQ Accordion Script ─────────────────────────────────────────────── #}
+<script>
+(function () {
+  var items = document.querySelectorAll('.acc-item');
+  if (!items.length) return;
+  // Open first item by default
+  items[0].classList.add('open');
+  items.forEach(function (item) {
+    var btn = item.querySelector('.acc-question');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var wasOpen = item.classList.contains('open');
+      // Collapse all
+      items.forEach(function (i) { i.classList.remove('open'); });
+      // Toggle clicked
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+
+
+
+</body>
+</html>

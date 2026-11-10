@@ -1,0 +1,20 @@
+{
+  "name": "HVAC Experts Pros",
+  "short_name": "HVAC Experts",
+  "description": "Top-rated local furnace repair and HVAC heating services across the USA. 24/7 emergency furnace repair, tune-ups, installations, and heat pump service.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060c18",
+  "theme_color": "#ea580c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "en-US"
+}

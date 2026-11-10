@@ -1,0 +1,489 @@
+---
+layout: layout.njk
+pagination:
+  data: cities
+  size: 1
+  alias: item
+permalink: "/{{ item.state.slug }}/{{ item.city.slug }}/index.html"
+eleventyComputed:
+  title: "{{ metaTitle }}"
+  description: "{{ metaDesc }}"
+  stateSlug: "{{ item.state.slug }}"
+  citySlug: "{{ item.city.slug }}"
+---
+
+{# ── Service Icon Map ──────────────────────────────────────────────────── #}
+{% set serviceIcons = {
+  'furnace-repair': 'ph-flame',
+  'furnace-installation': 'ph-gear',
+  'emergency-heating-repair': 'ph-siren',
+  'heating-tuneup-maintenance': 'ph-wrench',
+  'heat-pump-repair': 'ph-arrows-clockwise',
+  'boiler-repair-service': 'ph-drop',
+  'thermostat-repair-replacement': 'ph-thermometer',
+  'ductless-mini-split': 'ph-wind',
+  'air-duct-cleaning-repair': 'ph-fan',
+  'indoor-air-quality': 'ph-sparkle',
+  'gas-furnace-inspection': 'ph-shield-check',
+  'commercial-hvac-services': 'ph-buildings'
+} %}
+
+{# ── Schemas ───────────────────────────────────────────────────────────── #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "Furnace Repair & Heating in {{ item.city.name }}, {{ item.state.abbr }}",
+  "description": "Licensed heating and furnace repair services in {{ item.city.name }}, {{ item.state.name }}. Fast 24/7 service for emergency furnace repairs, heat pump diagnostics, heating tune-ups, boiler service, thermostat installation & complete winter HVAC support.",
+  "telephone": "{{ site.PHONE }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ item.city.name }}",
+    "addressRegion": "{{ item.state.abbr }}",
+    "postalCode": "{{ item.city.zip }}",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ ratingValue }}",
+    "reviewCount": "{{ reviewCount }}",
+    "bestRating": "5"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in faqs %}
+    {
+      "@type": "Question",
+      "name": {{ faq.q | dump | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq.a | dump | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.DOMAIN }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ item.state.name }}", "item": "{{ site.DOMAIN }}/{{ item.state.slug }}/" },
+    { "@type": "ListItem", "position": 3, "name": "{{ item.city.name }}", "item": "{{ site.DOMAIN }}/{{ item.state.slug }}/{{ item.city.slug }}/" }
+  ]
+}
+</script>
+
+{# ── Breadcrumb ────────────────────────────────────────────────────────── #}
+<div class="breadcrumb-bar">
+  <div class="container">
+    <div class="bc-inner">
+      <i class="ph ph-house" style="font-size:13px"></i>
+      <a href="/">Home</a>
+      <span class="bc-sep">›</span>
+      <a href="/{{ item.state.slug }}/">{{ item.state.name }}</a>
+      <span class="bc-sep">›</span>
+      <span>{{ item.city.name }}</span>
+    </div>
+  </div>
+</div>
+
+{# ── Banner ────────────────────────────────────────────────────────────── #}
+<div class="rs-banner">
+  <div class="banner-bg">
+    <img src="/assets/images/global_hero.webp" alt="Heating Background" loading="lazy">
+  </div>
+  <div class="container" style="position:relative;z-index:2">
+    <div class="banner-row" style="justify-content:center">
+      <div class="banner-content-col">
+        <div class="banner-content banner-content-centered">
+          <div class="sub-label">
+            <span class="live-dot"></span> {{ item.city.name }}, {{ item.state.abbr }} Heating Specialists
+          </div>
+          <h1 class="title">{{ h1Title }}</h1>
+          <p class="description">
+            Need dependable heating or furnace repair in {{ item.city.name }}, {{ item.state.abbr }}? Connect with certified local HVAC technicians for 24/7 emergency service, prompt diagnostics, seasonal tune-ups, boiler service, and heating system installations throughout {{ item.city.name }}{% if item.city.county %}, {{ item.city.county }} County{% endif %}.
+          </p>
+          <div class="btn-part" style="display:flex; justify-content:center; width:100%; margin:30px auto 0;">
+            <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
+              <i class="ph ph-phone-call" style="font-size:17px"></i>
+              {{ site.PHONE }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="banner-img-box">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/assets/images/mobile_hero.webp">
+          <img src="/assets/images/global_hero.webp" alt="Certified HVAC technician at work" width="800" height="600" loading="eager" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Services Grid ─────────────────────────────────────────────────────── #}
+<div class="rs-services">
+  <div class="container">
+    <h2>Professional Heating & Furnace Services in {{ item.city.name }}, {{ item.state.abbr }}</h2>
+    <div class="services-row">
+      {% for svc in services %}
+      <div class="services-slider">
+        <div class="services-item">
+          <a href="/services/{{ svc.slug }}/" class="card-link" aria-label="{{ svc.title }} in {{ item.city.name }}"></a>
+          
+          {% if svc.image %}
+          <div class="services-card-img">
+            <img src="/assets/images/{{ svc.image }}" alt="{{ svc.title }}" loading="lazy">
+          </div>
+          {% endif %}
+          <div class="services-icon-bar">
+            <div class="svc-icon">
+              <i class="ph {{ serviceIcons[svc.slug] or 'ph-flame' }}"></i>
+            </div>
+          </div>
+          <div class="services-content">
+            <h3 class="title">
+              <a href="/services/{{ svc.slug }}/">{{ svc.title }} in {{ item.city.name }}, {{ item.state.abbr }}</a>
+            </h3>
+            <p class="description">
+              Looking for {{ svc.title | lower }} in {{ item.city.name }}, {{ item.state.abbr }}? Contact {{ site.BRAND }} at
+              {{ site.PHONE }} for fast, certified heating service. {{ svc.description.split('.')[0] }}.
+            </p>
+            <div class="services-btn">
+              <a href="{{ site.PHONE_HREF }}">
+                <span class="btn-text">Get Quotes</span>
+                <span class="arrow-icon">
+                  <i class="ph ph-arrow-right" style="font-size:12px"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ── Counter ───────────────────────────────────────────────────────────── #}
+<div class="rs-counter">
+  <div class="container">
+    <div class="counter-grid">
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon">
+            <i class="ph ph-flame" style="font-size:26px;color:#fff"></i>
+          </div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">500,000</span><span class="prefix">+</span></div>
+            <h5 class="title">Heating Jobs Completed</h5>
+          </div>
+        </div>
+      </div>
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon">
+            <i class="ph ph-star" style="font-size:26px;color:#fff"></i>
+          </div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">4.9</span><span class="prefix">★</span></div>
+            <h5 class="title">Average Rating</h5>
+          </div>
+        </div>
+      </div>
+      <div class="counter-list">
+        <div class="counter-text">
+          <div class="counter-icon">
+            <i class="ph ph-clock" style="font-size:26px;color:#fff"></i>
+          </div>
+          <div class="counter-number">
+            <div class="count-row"><span class="rs-count">24</span><span class="prefix">/7</span></div>
+            <h5 class="title">Emergency Service</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Trust Badges ──────────────────────────────────────────────────────── #}
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="ph ph-certificate" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>Licensed and Certified</strong>
+          <span>All HVAC technicians fully licensed in {{ item.state.name }}</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="ph ph-clock-countdown" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>Fast Emergency Dispatch</strong>
+          <span>Rapid response in {{ item.city.name }} and surrounding areas</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="ph ph-tag" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>Upfront Flat Pricing</strong>
+          <span>No hidden fees — firm quote before repair starts</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="ph ph-shield-check" style="font-size:28px;color:var(--primary)"></i>
+        <div>
+          <strong>100% Satisfaction</strong>
+          <span>Heating repairs backed by our strict warranty</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Why Choose Us ─────────────────────────────────────────────────────── #}
+<div class="rs-choose" style="background:var(--gray-bg)">
+  <div class="container">
+    <div class="choose-grid">
+      <div>
+        <div class="sec-title4">
+          <div class="sub-line"></div>
+          <span class="sub-text">
+            <i class="ph ph-shield-check" style="font-size:13px"></i>
+            Why Choose Us
+          </span>
+          <h2>Best Heating & Furnace Experts in {{ item.city.name }}</h2>
+          <p>{{ whyChooseContent.p1 }}</p>
+          <p>{{ whyChooseContent.p2 }}</p>
+          
+          {% if item.city.county %}
+          <div style="margin-top:15px;padding:12px;background:rgba(234,88,12,0.1);border-left:3px solid var(--primary);border-radius:4px">
+            <strong><i class="ph ph-warning-circle" style="margin-right:6px"></i>Safety Notice:</strong> If you smell raw natural gas or suspect a cracked heat exchanger carbon monoxide leak in <strong>{{ item.city.county }} County</strong>, evacuate immediately and call 911 before calling our emergency line.
+          </div>
+          {% endif %}
+        </div>
+
+        {% if item.city.zipCodes and item.city.zipCodes.length > 0 %}
+        <div class="zip-section">
+          <h3><i class="ph ph-map-pin-line" style="font-size:15px"></i> Popular Zip Codes in {{ item.city.name }}</h3>
+          <div class="zip-wrap">
+            {% for z in item.city.zipCodes %}
+            <span class="zip-pill">{{ z }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% elif item.city.zip %}
+        <div class="zip-section">
+          <h3><i class="ph ph-map-pin-line" style="font-size:15px"></i> Popular Zip Codes</h3>
+          <div class="zip-wrap">
+            <span class="zip-pill">{{ item.city.zip }}</span>
+          </div>
+        </div>
+        {% endif %}
+
+        <div style="margin-top:26px">
+          <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
+            <i class="ph ph-phone-call" style="font-size:17px"></i>
+            {{ site.PHONE }}
+          </a>
+        </div>
+      </div>
+      <div class="choose-img">
+        <img src="/assets/images/furnace_repair.webp" alt="Top-rated heating company in {{ item.city.name }}, {{ item.state.name }} specializing in emergency furnace repair and tune-ups." loading="lazy" width="600" height="450">
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Who We Are ────────────────────────────────────────────────────────── #}
+<div class="rs-choose">
+  <div class="container">
+    <div class="choose-grid">
+      <div class="choose-img">
+        <img src="/assets/images/commercial_hvac.webp" alt="Certified HVAC technicians in {{ item.city.name }}, {{ item.state.abbr }} equipped with top-tier tools for residential and commercial heating." loading="lazy" width="600" height="450">
+      </div>
+      <div>
+        <div class="sec-title4">
+          <div class="sub-line"></div>
+          <span class="sub-text">
+            <i class="ph ph-info" style="font-size:13px"></i>
+            Who We Are
+          </span>
+          <h2>{{ item.city.name }}, {{ item.state.abbr }} Heating & HVAC Pros</h2>
+          
+          {{ whoWeAreContent | safe }}
+
+          <p>
+            We serve {{ item.city.name }}{% if item.city.county %}, {{ item.city.county }} County{% endif %}, and surrounding
+            {{ item.state.name }} communities with same day and 24/7 emergency furnace repair and heating services.
+          </p>
+        </div>
+        <div class="about-mini">
+          <div class="mini-card">
+            <h4><i class="ph ph-house-line" style="font-size:14px"></i> Residential Heating</h4>
+            <p>Full-service furnace repair, heat pump diagnostics, and seasonal heating tune-ups for homes in {{ item.city.name }}.</p>
+          </div>
+          <div class="mini-card">
+            <h4><i class="ph ph-buildings" style="font-size:14px"></i> Commercial HVAC</h4>
+            <p>Fast commercial rooftop heating and furnace service to minimize business downtime in {{ item.city.name }}, {{ item.state.abbr }}.</p>
+          </div>
+        </div>
+
+        {# ── SEO Target Keywords Block ── #}
+        <div class="seo-keywords-block" style="margin-top:30px;padding:20px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+          <h3 style="font-size:18px;margin-bottom:10px;"><i class="ph ph-magnifying-glass" style="color:var(--primary)"></i> Need Furnace Repair Near You in {{ item.city.name }}?</h3>
+          <p style="font-size:14px;color:#475569;line-height:1.6;">
+            Whether you are searching for <strong>emergency furnace repair near me</strong>, a <strong>24 hour heating technician</strong> for late-night winter freeze emergencies, or a <strong>same day furnace tune up</strong>, {{ site.BRAND }} connects you with certified professionals. We handle everything from <strong>gas furnace repair</strong> and <strong>electric furnace installation</strong> to <strong>heat pump troubleshooting</strong> in {{ item.city.name }}, {{ item.state.abbr }}. Call <a href="{{ site.PHONE_HREF }}" style="font-weight:700;color:var(--primary)">{{ site.PHONE }}</a> today for fast, upfront <strong>furnace service quotes near me</strong>!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── How It Works ──────────────────────────────────────────────────────── #}
+<div class="rs-process">
+  <div class="container">
+    <div class="sec-center">
+      <span class="sub-label"><i class="ph ph-list-numbers" style="font-size:12px"></i> Our Simple Process</span>
+      <h2>How We Serve {{ item.city.name }}, {{ item.state.abbr }}</h2>
+      <p class="sec-desc">Getting expert heating and furnace help in {{ item.city.name }} is simple, fast, and stress-free.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="ph ph-phone-call" style="font-size:32px;color:var(--primary)"></i></div>
+        <h3>Call 24/7 Heating Dispatch</h3>
+        <p>Call <a href="{{ site.PHONE_HREF }}" style="color:var(--primary);font-weight:700">{{ site.PHONE }}</a> or submit a service request. Our {{ item.city.name }} heating dispatch team responds in minutes, 24 hours a day, 7 days a week.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="ph ph-magnifying-glass" style="font-size:32px;color:var(--primary)"></i></div>
+        <h3>Diagnostic & Firm Quote</h3>
+        <p>Your certified HVAC technician arrives at your {{ item.city.name }} property, performs a complete system diagnostic on your furnace or heat pump, and provides a clear flat-rate written quote before starting.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="ph ph-wrench" style="font-size:32px;color:var(--primary)"></i></div>
+        <h3>Guaranteed Heating Repair</h3>
+        <p>We fix the issue right the first time using OEM-grade parts, verify carbon monoxide safety and airflow, clean up the workspace, and back every job with our 100% satisfaction guarantee for {{ item.city.name }} customers.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Google Map ────────────────────────────────────────────────────────── #}
+<div class="rs-map">
+  <div class="container">
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m2!2m1!1s{{ item.city.name | urlencode }}%2C+{{ item.state.abbr | urlencode }}" width="100%" height="360" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of {{ item.city.name }}, {{ item.state.abbr }}"></iframe>
+    </div>
+  </div>
+</div>
+
+{# ── FAQ ───────────────────────────────────────────────────────────────── #}
+<div class="rs-faq">
+  <div class="container">
+    <h2 class="faq-inner-title">
+      <i class="ph ph-chat-circle-dots" style="font-size:26px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
+      Frequently Asked Questions About Heating & Furnace Repair in {{ item.city.name }}, {{ item.state.abbr }}
+    </h2>
+    <div class="faq-grid">
+      <div class="faq-img">
+        <img src="/assets/images/emergency_heating.webp" alt="Frequently asked furnace repair questions in {{ item.city.name }}. Certified heating contractors serving {{ item.city.name }}, {{ item.state.abbr }}." loading="lazy" width="600" height="450">
+      </div>
+      <div class="accordion" itemscope itemtype="https://schema.org/FAQPage">
+        {% for faq in faqs %}
+        <div class="acc-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="acc-question" itemprop="name" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+            {{ faq.q }}
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">{{ faq.a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Testimonials ──────────────────────────────────────────────────────── #}
+<div class="rs-testimonial">
+  <div class="container">
+    <div class="sec-inner-title">
+      <span class="sub-text">
+        <i class="ph ph-star" style="font-size:13px"></i>
+        Testimonials
+      </span>
+      <h2>What Our Clients Say About Our Heating Services in {{ item.city.name }}</h2>
+    </div>
+    <div class="testi-grid">
+      {% for t in testimonials %}
+      <div class="testi-item">
+        <div class="testi-stars">★★★★★</div>
+        <p>"{{ t.text }}"</p>
+        <div class="testi-author">
+          <i class="ph ph-user-circle" style="font-size:14px;margin-right:4px"></i>
+          {{ t.author }}
+        </div>
+        <div class="testi-loc">{{ item.city.name }}, {{ item.state.abbr }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ── Nearby Cities ─────────────────────────────────────────────────────── #}
+{% if nearbyCities and nearbyCities.length > 0 %}
+<div class="nearby-section">
+  <div class="container">
+    <a href="/{{ item.state.slug }}/" style="text-decoration:none">
+      <h3>
+        <i class="ph ph-map-trifold" style="font-size:18px;color:var(--primary)"></i>
+        Find Furnace Repair in {{ item.state.name }} Cities
+      </h3>
+    </a>
+    <div class="nearby-links">
+      {% for nc in nearbyCities %}
+      <a href="/{{ item.state.slug }}/{{ nc.slug }}/" class="nearby-link">{{ nc.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{# ── CTA ───────────────────────────────────────────────────────────────── #}
+<div class="cta-strip">
+  <div class="container">
+    <h2>Need Furnace Repair in {{ item.city.name }}, {{ item.state.abbr }}?</h2>
+    <p>Our certified HVAC technicians are available 24/7 for emergency winter heating calls and same day repairs.</p>
+    <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
+      <i class="ph ph-phone-call" style="font-size:18px"></i>
+      {{ site.PHONE }} — Free Estimate
+    </a>
+  </div>
+</div>
+
+<script>
+  localStorage.setItem('userLoc', JSON.stringify({
+    stateName: "{{ item.state.name }}",
+    stateAbbr: "{{ item.state.abbr }}",
+    stateSlug: "{{ item.state.slug }}",
+    cityName: "{{ item.city.name }}",
+    citySlug: "{{ item.city.slug }}"
+  }));
+</script>
