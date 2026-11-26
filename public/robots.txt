@@ -29,4 +29,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-Sitemap: https://breakerrepairpros.com/sitemap.xml
+Sitemap: https://breakerrepairpros.vercel.app/sitemap.xml

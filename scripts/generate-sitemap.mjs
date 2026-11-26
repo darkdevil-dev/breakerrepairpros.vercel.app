@@ -11,7 +11,7 @@ const { default: states } = await import('../data/states.js');
 const { default: services } = await import('../data/services.js');
 const { default: site } = await import('../src/_data/site.js');
 
-const DOMAIN = (site.DOMAIN || 'https://breakerrepairpros.com').replace(/\/+$/, '');
+const DOMAIN = (site.DOMAIN || 'https://breakerrepairpros.vercel.app').replace(/\/+$/, '');
 const LASTMOD = site.BUILD_DATE || new Date().toISOString().split('T')[0];
 
 function writeToSite(filename, content) {
