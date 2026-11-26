@@ -3,6 +3,7 @@ import { getFaqsPool } from '../../data/faqsPool.js';
 import { getTestimonialsPool } from '../../data/testimonialsPool.js';
 import { getWhyChoosePool } from '../../data/whyChoosePool.js';
 import { getWhoWeArePool } from '../../data/whoWeArePool.js';
+import { breakerSymptoms, panelBrands, getRegionalProfile } from '../../data/breakerGuides.js';
 
 function getSeededRandom(seedString) {
   let seed = 0;
@@ -27,109 +28,164 @@ function shuffleArray(array, randomFunc) {
 
 export default {
   eleventyComputed: {
+    geoRegion: (data) => `US-${data.item.state.abbr}`,
+    geoPlacename: (data) => `${data.item.city.name}, ${data.item.state.abbr}, United States`,
     metaTitle: (data) => {
       const city = data.item.city.name;
       const state = data.item.state.abbr;
-      const rand = getSeededRandom(`title-${data.item.city.slug}`);
+      const rand = getSeededRandom(`title-${data.item.state.slug}-${data.item.city.slug}`);
       const titles = [
-        `Furnace Repair & Heating in ${city}, ${state} - ${data.site.BRAND}`,
-        `Emergency Furnace Repair ${city}, ${state} | 24/7 Heating Service`,
-        `Furnace Service ${city}, ${state} | Same Day Heating Dispatch`,
-        `Local Heating & Furnace Repair ${city}, ${state} | 24/7 Experts`
+        `Circuit Breaker Repair in ${city}, ${state} | ${data.site.BRAND}`,
+        `Emergency Breaker Repair ${city}, ${state} — 24/7 Electricians`,
+        `Tripping Breaker & Panel Repair in ${city}, ${state}`,
+        `Licensed Breaker Box Repair ${city}, ${state} | Same-Day Help`
       ];
       return titles[Math.floor(rand() * titles.length)];
     },
     metaDesc: (data) => {
       const city = data.item.city.name;
       const state = data.item.state.abbr;
-      const rand = getSeededRandom(`desc-${data.item.city.slug}`);
+      const zip = data.item.city.zip ? ` (ZIP ${data.item.city.zip})` : '';
+      const rand = getSeededRandom(`desc-${data.item.state.slug}-${data.item.city.slug}`);
       const descs = [
-        `Looking for furnace repair in ${city}, ${state}? Contact ${data.site.BRAND} at ${data.site.PHONE} for 24/7 emergency heating service, furnace tune-ups, and heat pump repair.`,
-        `Emergency furnace repair and heating services in ${city}, ${state}. Available 24/7 for no-heat emergencies, pilot light issues, and burner replacements. Call now!`,
-        `Need reliable heating or furnace service in ${city}, ${state}? Our certified HVAC technicians offer same day furnace diagnostics, tune-ups, and repairs. Call 24/7.`,
-        `Top-rated local furnace repair in ${city}, ${state}. We specialize in 24/7 emergency heating restoration, heat pump repair, and furnace installation. Fast service today!`
+        `Need circuit breaker repair in ${city}, ${state}${zip}? Call ${data.site.PHONE} to connect with licensed electricians for tripping breakers, main breaker swaps & panel upgrades.`,
+        `Fast 24/7 breaker repair in ${city}, ${state}. Troubleshoot buzzing panels, warm breakers, AFCI/GFCI trips, and dead circuits with upfront local estimates.`,
+        `Connect with licensed ${city}, ${state} electricians for circuit breaker replacement, burnt bus bar repair, subpanels, and 200-amp electrical panel upgrades.`,
+        `Dealing with a breaker that won't reset in ${city}, ${state}? Reach local electrical pros 24/7 at ${data.site.PHONE} for safe NEC-compliant diagnostics.`
       ];
       return descs[Math.floor(rand() * descs.length)];
     },
     h1Title: (data) => {
       const city = data.item.city.name;
       const state = data.item.state.abbr;
-      const rand = getSeededRandom(`h1-${data.item.city.slug}`);
+      const rand = getSeededRandom(`h1-${data.item.state.slug}-${data.item.city.slug}`);
       const h1s = [
-        `Emergency Furnace Repair in ${city}, ${state}`,
-        `Your Trusted ${city} Heating & Furnace Pros`,
-        `Furnace Repair & Heating Services in ${city}, ${state}`,
+        `Circuit Breaker Repair in ${city}, ${state}`,
+        `24/7 Breaker & Panel Service in ${city}, ${state}`,
+        `Licensed Circuit Breaker Electricians in ${city}, ${state}`,
+        `Tripping Breaker & Panel Repair in ${city}, ${state}`
       ];
       return h1s[Math.floor(rand() * h1s.length)];
     },
+    heroDesc: (data) => {
+      const city = data.item.city.name;
+      const state = data.item.state.abbr;
+      const county = data.item.city.county ? `${data.item.city.county} County` : data.item.state.name;
+      const zipCount = data.item.city.zipCodes ? data.item.city.zipCodes.length : 1;
+      const zipNote = zipCount > 1 ? `all ${zipCount} local ZIP codes` : `ZIP ${data.item.city.zip}`;
+      const rand = getSeededRandom(`hero-${data.item.state.slug}-${data.item.city.slug}`);
+      const intros = [
+        `Experiencing tripping breakers, buzzing panels, or partial power loss in ${city}, ${state}? Connect with state-licensed electricians serving ${county} (${zipNote}) for same-day diagnostics, OEM breaker swaps, and 200A panel upgrades.`,
+        `Get fast, code-compliant circuit breaker repair across ${city}, ${state}. Local electrical pros serving ${zipNote} handle short circuits, AFCI/GFCI trips, main disconnect failures, and thermal panel safety checks 24/7.`,
+        `Don't ignore warm or repeatedly tripping breakers in ${city}, ${state}. ${data.site.BRAND} connects ${county} homeowners and businesses with insured electricians for safe breaker replacements and load-center repairs.`,
+        `From dead 15A/20A outlets to 200-amp main breaker failures in ${city}, ${state}, reach licensed technicians covering ${zipNote} for upfront flat-rate estimates and 24/7 emergency breaker dispatch.`,
+        `Need a trusted electrician for breaker box issues in ${city}, ${state}? Local pros across ${county} stock Square D, Eaton, Siemens, and GE breakers for rapid, NEC-compliant single-visit repairs.`,
+        `Whether your ${city}, ${state} home has a sparking breaker, double-tapped inspection flag, or outdated FPE/Zinsco panel, connect 24/7 with local electricians serving ${zipNote}.`
+      ];
+      return intros[Math.floor(rand() * intros.length)];
+    },
+    ctaCopy: (data) => {
+      const city = data.item.city.name;
+      const state = data.item.state.abbr;
+      const rand = getSeededRandom(`cta-${data.item.state.slug}-${data.item.city.slug}`);
+      const ctas = [
+        {
+          title: `Breaker Tripping or Buzzing in ${city}, ${state}?`,
+          desc: `Speak with a live dispatcher 24/7 to connect with a licensed local electrician serving ${city}.`
+        },
+        {
+          title: `Need Same-Day Breaker Repair in ${city}?`,
+          desc: `Licensed electricians across ${state} are available day and night for emergency breaker & panel repairs.`
+        },
+        {
+          title: `Restore Safe Power to Your ${city} Property Today`,
+          desc: `Call now for upfront flat-rate diagnostics on tripping breakers, main disconnects, and 200A upgrades.`
+        },
+        {
+          title: `24/7 Emergency Electrical Panel Help in ${city}, ${state}`,
+          desc: `Connect immediately with an insured electrician carrying UL-listed OEM replacement breakers.`
+        }
+      ];
+      return ctas[Math.floor(rand() * ctas.length)];
+    },
     nearbyCities: (data) => {
       const stateObj = statesData.find(s => s.slug === data.item.state.slug);
-      if (!stateObj) return [];
-      return stateObj.cities.filter(c => c.slug !== data.item.city.slug).slice(0, 14);
+      if (!stateObj || stateObj.cities.length <= 1) return [];
+      const all = stateObj.cities;
+      const curSlug = data.item.city.slug;
+      const curCounty = data.item.city.county;
+      const curIdx = all.findIndex(c => c.slug === curSlug);
+
+      const selected = [];
+      const seen = new Set([curSlug]);
+
+      // 1. Prefer same-county neighboring cities first for strong local relevance
+      if (curCounty) {
+        const countyPeers = all.filter(c => c.county === curCounty && c.slug !== curSlug);
+        const startOffset = curIdx >= 0 ? curIdx % Math.max(1, countyPeers.length) : 0;
+        for (let i = 0; i < countyPeers.length && selected.length < 10; i++) {
+          const cand = countyPeers[(startOffset + i) % countyPeers.length];
+          if (!seen.has(cand.slug)) {
+            seen.add(cand.slug);
+            selected.push(cand);
+          }
+        }
+      }
+
+      // 2. Fill remaining slots up to 14 using a circular neighbor window around curIdx (avoids orphan cities)
+      const len = all.length;
+      const base = curIdx >= 0 ? curIdx : 0;
+      for (let step = 1; step < len && selected.length < 14; step++) {
+        const forward = all[(base + step) % len];
+        if (!seen.has(forward.slug)) {
+          seen.add(forward.slug);
+          selected.push(forward);
+        }
+        if (selected.length >= 14) break;
+        const backward = all[(base - step + len) % len];
+        if (!seen.has(backward.slug)) {
+          seen.add(backward.slug);
+          selected.push(backward);
+        }
+      }
+
+      return selected;
     },
     faqs: (data) => {
       const city = data.item.city;
       const state = data.item.state;
-      const rand = getSeededRandom(`${city.slug}-${state.slug}`);
+      const rand = getSeededRandom(`faq-${state.slug}-${city.slug}`);
       const allFaqs = getFaqsPool(city, state, data.site.BRAND, data.site.PHONE);
-      return shuffleArray(allFaqs, rand).slice(0, 10);
+      return shuffleArray(allFaqs, rand).slice(0, 8);
     },
     testimonials: (data) => {
       const city = data.item.city;
       const state = data.item.state;
-      const rand = getSeededRandom(`${city.slug}-${state.slug}`);
+      const rand = getSeededRandom(`testi-${state.slug}-${city.slug}`);
       const allTestimonials = getTestimonialsPool(city, state, data.site.BRAND);
       return shuffleArray(allTestimonials, rand).slice(0, 3);
     },
     whyChooseContent: (data) => {
       const city = data.item.city;
       const state = data.item.state;
-      const rand = getSeededRandom(`${city.slug}-${state.slug}`);
+      const rand = getSeededRandom(`why-${state.slug}-${city.slug}`);
       const allWhyChoose = getWhyChoosePool(city, state, data.site.BRAND);
       return allWhyChoose[Math.floor(rand() * allWhyChoose.length)];
     },
     whoWeAreContent: (data) => {
       const city = data.item.city;
       const state = data.item.state;
-      const rand = getSeededRandom(`${city.slug}-${state.slug}`);
+      const rand = getSeededRandom(`who-${state.slug}-${city.slug}`);
       const allWhoWeAre = getWhoWeArePool(city, state, data.site.BRAND);
       return allWhoWeAre[Math.floor(rand() * allWhoWeAre.length)];
     },
-    contentVariation: (data) => {
-      const city = data.item.city;
-      const state = data.item.state;
-      const rand = getSeededRandom(`${city.slug}-${state.slug}`);
-      return Math.floor(rand() * 3);
+    regionalRisk: (data) => {
+      return getRegionalProfile(data.item.state.abbr, `${data.item.city.name}, ${data.item.state.abbr}`);
     },
-    titleVariation: (data) => {
-      const city = data.item.city;
-      const state = data.item.state;
-      const rand = getSeededRandom(`${city.slug}-${state.slug}`);
-      return Math.floor(rand() * 2);
+    citySymptoms: (data) => {
+      const rand = getSeededRandom(`sym-${data.item.state.slug}-${data.item.city.slug}`);
+      return shuffleArray(breakerSymptoms, rand).slice(0, 4);
     },
-    titleSuffix: (data) => {
-      return data.titleVariation === 0 ? 'Same Day Service' : 'Emergency Service';
-    },
-    localRiskText: (data) => {
-      const city = data.item.city;
-      const state = data.item.state;
-      let text = `${city.name} homeowners and businesses trust our licensed HVAC technicians for all heating needs — from emergency furnace repairs and heat pump service to seasonal tune-ups and full system replacements.`;
-      const coldStates = ['WI','MN','MI','NY','IL','ND','SD','OH','PA','ME','VT','NH','IA','MA','MT','WY','CO','ID'];
-      const hotStates = ['FL','TX','AZ','NV','NM'];
-      if (coldStates.includes(state.abbr)) {
-        text = `During severe winter cold snaps, ${city.name} homes are especially vulnerable to furnace flame failures, frozen heat pumps, and cracked heat exchangers. Our technicians respond fast with 24/7 emergency furnace repairs, OEM parts replacements, and carbon monoxide testing to protect your family.`;
-      } else if (hotStates.includes(state.abbr)) {
-        text = `When sudden winter cold fronts sweep into ${city.name}, heating systems and heat pumps that have been neglected often fail, trip breakers, or produce electrical burning odors. Our certified HVAC specialists provide rapid emergency diagnostics, heating tune-ups, and heat pump repairs in this climate.`;
-      }
-      return text;
-    },
-    ratingValue: (data) => {
-      const rand = getSeededRandom(`rating-${data.item.city.slug}`);
-      return (4.7 + rand() * 0.28).toFixed(1);
-    },
-    reviewCount: (data) => {
-      const rand = getSeededRandom(`rating-${data.item.city.slug}`);
-      return (80 + Math.floor(rand() * 320)).toString();
-    }
+    cityBrands: () => panelBrands
   }
 };

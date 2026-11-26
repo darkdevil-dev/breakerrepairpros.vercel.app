@@ -1,11 +1,11 @@
 {
-  "name": "HVAC Experts Pros",
-  "short_name": "HVAC Experts",
-  "description": "Top-rated local furnace repair and HVAC heating services across the USA. 24/7 emergency furnace repair, tune-ups, installations, and heat pump service.",
+  "name": "Breaker Repair Pros",
+  "short_name": "Breaker Pros",
+  "description": "Top-rated local circuit breaker repair, tripping breaker troubleshooting, and electrical panel upgrade specialists across the USA. 24/7 emergency service.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#060c18",
-  "theme_color": "#ea580c",
+  "background_color": "#090f1d",
+  "theme_color": "#2563eb",
   "orientation": "portrait",
   "icons": [
     {

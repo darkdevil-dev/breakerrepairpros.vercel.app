@@ -1,20 +1,18 @@
 ---
 layout: layout.njk
-title: "Contact Our Licensed HVAC Specialists | 24/7 Furnace Repair & Heating Service"
-description: "Contact our licensed HVAC technicians for 24/7 emergency furnace repair, heating maintenance, and HVAC services. Call (877) 739-2492 or request a fast free quote!"
+title: "Contact Licensed Circuit Breaker Electricians | 24/7 Breaker Repair Pros"
+description: "Contact licensed local electricians for 24/7 emergency circuit breaker repair, tripping breaker diagnostics, and electrical panel upgrades. Call (877) 739-2492 or request a quote!"
 permalink: "contact/index.html"
 ---
 
-{# ——— Schemas —————————————————————————————————————————————————————————— #}
+{# ── Schemas ───────────────────────────────────────────────────────────── #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  "name": "{{ site.BRAND }} - Contact Us",
+  "@type": "ContactPage",
+  "name": "Contact {{ site.BRAND }}",
   "url": "{{ site.DOMAIN }}/contact/",
-  "image": "{{ site.DOMAIN }}/favicon.svg",
-  "telephone": "{{ site.PHONE }}",
-  "priceRange": "$$"
+  "mainEntity": { "@id": "{{ site.DOMAIN }}/#organization" }
 }
 </script>
 <script type="application/ld+json">
@@ -27,7 +25,6 @@ permalink: "contact/index.html"
   ]
 }
 </script>
-
 
 {# ── Breadcrumb #}
 <div class="breadcrumb-bar">
@@ -45,10 +42,10 @@ permalink: "contact/index.html"
 <div class="contact-hero">
   <div class="container">
     <span class="sub-label">
-      <span class="live-dot"></span> 24/7 Dispatch Desk
+      <span class="live-dot"></span> 24/7 Breaker Dispatch Desk
     </span>
     <h1>Contact <span>{{ site.BRAND }}</span></h1>
-    <p>We connect property owners with independent, certified heating and HVAC professionals nationwide. Contact our dispatch team by phone or submit a service request below for prompt assistance.</p>
+    <p>We connect property owners with independent, licensed circuit breaker and electrical panel specialists nationwide. Call our 24/7 dispatch desk or request a callback below.</p>
   </div>
 </div>
 
@@ -60,63 +57,62 @@ permalink: "contact/index.html"
       {# ── Left: Contact Info Cards #}
       <div class="contact-info-col">
         <h2>Reach Our Dispatch Desk</h2>
-        <p style="color:var(--text-body);margin-bottom:28px">If you smell raw natural gas or suspect carbon monoxide poisoning, evacuate immediately and call 911, then call our emergency heating line.</p>
+        <p style="color:var(--text-body);margin-bottom:28px">If you see active sparks, smoke, or fire inside your electrical panel, evacuate and call 911 first, then call our 24/7 emergency electrician line.</p>
 
         <div class="contact-card">
-          <div class="contact-card-icon" style="background:rgba(234, 88, 12, 0.1)">
+          <div class="contact-card-icon" style="background:rgba(37, 99, 235, 0.1)">
             <i class="ph ph-phone-call" style="font-size:26px;color:var(--primary)"></i>
           </div>
           <div>
             <h4>Call Us — 24/7 Emergency Line</h4>
             <a href="{{ site.PHONE_HREF }}" class="contact-phone-link">{{ site.PHONE }}</a>
-            <p>Immediate dispatch for urgent heating failures, cracked igniters, and freezing homes.</p>
+            <p>Immediate dispatch for burning breaker odors, buzzing panels, main breaker failures, and dead circuits.</p>
           </div>
         </div>
 
         <div class="contact-card">
-          <div class="contact-card-icon" style="background:rgba(0, 0, 0, 0.05)">
+          <div class="contact-card-icon" style="background:rgba(15, 23, 42, 0.05)">
             <i class="ph ph-envelope-open" style="font-size:26px;color:var(--primary)"></i>
           </div>
           <div>
             <h4>Email Us</h4>
-            <a href="mailto:support@hvacexpertspros.link" class="contact-email-link">support@hvacexpertspros.link</a>
-            <p>For non-emergencies, maintenance inquiries, or commercial estimates. We reply quickly.</p>
+            <a href="mailto:{{ site.EMAIL }}" class="contact-email-link">{{ site.EMAIL }}</a>
+            <p>For non-emergencies, panel upgrade estimates, or commercial switchgear inquiries. We respond promptly.</p>
           </div>
         </div>
 
         <div class="contact-card">
-          <div class="contact-card-icon" style="background:rgba(0, 0, 0, 0.05)">
+          <div class="contact-card-icon" style="background:rgba(15, 23, 42, 0.05)">
             <i class="ph ph-clock" style="font-size:26px;color:var(--primary)"></i>
           </div>
           <div>
             <h4>Hours of Operation</h4>
             <p class="contact-hours">
-              <span><strong>Emergency Heating Line:</strong> 24 Hours / 7 Days / 365 Days</span>
-              <span><strong>Diagnostic & Repair:</strong> Same day dispatch available</span>
+              <span><strong>Emergency Breaker Line:</strong> 24 Hours / 7 Days / 365 Days</span>
+              <span><strong>Diagnostic &amp; Repair:</strong> Same-day dispatch available</span>
               <span><strong>Service Coverage:</strong> All 50 States Nationwide</span>
             </p>
           </div>
         </div>
 
         <div class="contact-card">
-          <div class="contact-card-icon" style="background:rgba(0, 0, 0, 0.05)">
+          <div class="contact-card-icon" style="background:rgba(15, 23, 42, 0.05)">
             <i class="ph ph-map-pin" style="font-size:26px;color:var(--primary)"></i>
           </div>
           <div>
             <h4>Service Area</h4>
-            <p>We operate across the United States. Connect with certified local HVAC technicians in your area via our <a href="/services/" style="color:var(--primary);font-weight:600">heating services directory</a>.</p>
+            <p>We operate across the United States. Connect with licensed local electricians in your area via our <a href="/services/" style="color:var(--primary);font-weight:600">circuit breaker services directory</a>.</p>
           </div>
         </div>
 
-        {# Trust badges mini #}
         <div class="contact-trust">
           <div class="ct-badge">
             <i class="ph ph-certificate" style="font-size:18px;color:var(--primary)"></i>
-            Licensed & EPA Certified
+            Licensed &amp; Insured
           </div>
           <div class="ct-badge">
             <i class="ph ph-shield-check" style="font-size:18px;color:var(--primary)"></i>
-            Background Checked
+            NEC Code Compliant
           </div>
           <div class="ct-badge">
             <i class="ph ph-tag" style="font-size:18px;color:var(--primary)"></i>
@@ -129,8 +125,8 @@ permalink: "contact/index.html"
       <div class="contact-form-col">
         <div class="contact-form-box">
           <div class="form-header">
-            <h3>Request Fast Heating Service</h3>
-            <p>Fill out the form below and an HVAC dispatcher will contact you within minutes.</p>
+            <h3>Request Fast Circuit Breaker Service</h3>
+            <p>Fill out the form below and an electrical dispatcher will contact you promptly.</p>
           </div>
           <form class="contact-form" id="contactForm" action="#" method="POST" novalidate>
             <div class="form-row">
@@ -188,24 +184,24 @@ permalink: "contact/index.html"
             </div>
 
             <div class="form-group">
-              <label for="service">Service Needed <span class="req">*</span></label>
+              <label for="service">Breaker Service Needed <span class="req">*</span></label>
               <div class="input-wrap">
-                <i class="ph ph-flame input-icon"></i>
+                <i class="ph ph-lightning input-icon"></i>
                 <select id="service" name="service" required>
-                  <option value="" disabled selected>Select Heating / HVAC Service</option>
-                  <option>Furnace Repair & Emergency Service</option>
-                  <option>Furnace Replacement & Installation</option>
-                  <option>24/7 Emergency Heating Repair</option>
-                  <option>Seasonal Heating Tune-Up & Safety Check</option>
-                  <option>Heat Pump Repair & Replacement</option>
-                  <option>Boiler Repair & Radiator Heating</option>
-                  <option>Smart Thermostat Installation & Service</option>
-                  <option>Ductless Mini-Split Heating & AC</option>
-                  <option>Air Duct Cleaning & Airflow Balancing</option>
-                  <option>Indoor Air Quality & Furnace Filtration</option>
-                  <option>Gas Furnace Inspection & CO Testing</option>
-                  <option>Commercial HVAC & Rooftop Unit Service</option>
-                  <option>Other Heating or Cooling Issue</option>
+                  <option value="" disabled selected>Select Circuit Breaker / Panel Service</option>
+                  <option>Circuit Breaker Repair &amp; Replacement</option>
+                  <option>Tripping Breaker Troubleshooting</option>
+                  <option>Main Breaker Repair &amp; Replacement</option>
+                  <option>Electrical Panel Upgrade (100A–200A)</option>
+                  <option>24/7 Emergency Breaker Repair</option>
+                  <option>AFCI &amp; GFCI Breaker Installation</option>
+                  <option>Subpanel Installation &amp; Repair</option>
+                  <option>Fuse Box / FPE / Zinsco Panel Replacement</option>
+                  <option>Dedicated 240V Circuit &amp; Breaker Install</option>
+                  <option>Burnt Breaker &amp; Bus Bar Inspection</option>
+                  <option>Panel Surge Protection &amp; Grounding</option>
+                  <option>Commercial Breaker &amp; Switchgear Service</option>
+                  <option>Other Breaker or Electrical Panel Issue</option>
                 </select>
               </div>
             </div>
@@ -214,7 +210,7 @@ permalink: "contact/index.html"
               <label for="urgency">How Urgent Is This?</label>
               <div class="urgency-pills" id="urgencyGroup">
                 <label class="urgency-pill">
-                  <input type="radio" name="urgency" value="emergency"> 🚨 Freezing / Emergency Now
+                  <input type="radio" name="urgency" value="emergency"> 🚨 Sparks / Burning / Emergency
                 </label>
                 <label class="urgency-pill">
                   <input type="radio" name="urgency" value="today"> ⚡ Today
@@ -229,30 +225,29 @@ permalink: "contact/index.html"
             </div>
 
             <div class="form-group">
-              <label for="message">Describe the Heating Issue <span class="req">*</span></label>
+              <label for="message">Describe the Breaker Issue <span class="req">*</span></label>
               <div class="input-wrap">
                 <i class="ph ph-chat-text input-icon" style="top:16px"></i>
-                <textarea id="message" name="message" rows="4" placeholder="E.g. Furnace blowing cold air, pilot igniter clicking without flame, loud motor screeching, thermostat unresponsive, no heat in home…" required></textarea>
+                <textarea id="message" name="message" rows="4" placeholder="E.g. Kitchen breaker keeps tripping, breaker feels hot or buzzing, main breaker won't reset, need 200A panel upgrade…" required></textarea>
               </div>
             </div>
 
             <button type="submit" class="form-submit-btn" id="submitBtn">
               <i class="ph ph-paper-plane-tilt" style="font-size:18px"></i>
-              Send My Heating Request — Fast Response
+              Send My Breaker Request — Fast Response
             </button>
 
             <p class="form-disclaimer">
               <i class="ph ph-lock" style="font-size:12px"></i>
               Your information is 100% private. We never sell or share your data.
-              For freezing emergencies, call <a href="{{ site.PHONE_HREF }}">{{ site.PHONE }}</a> directly.
+              For urgent breaker emergencies, call <a href="{{ site.PHONE_HREF }}">{{ site.PHONE }}</a> directly.
             </p>
           </form>
 
-          {# Success message (hidden by default) #}
           <div class="form-success" id="formSuccess" style="display:none">
             <div class="success-icon"><i class="ph ph-check-circle" style="font-size:52px;color:var(--primary)"></i></div>
             <h3>Request Received!</h3>
-            <p>Thank you! An HVAC dispatcher will call you back within <strong>15 minutes</strong>. For immediate heating emergencies, call us right away:</p>
+            <p>Thank you! An electrical dispatcher will call you back shortly. For immediate breaker emergencies, call us right away:</p>
             <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
               <i class="ph ph-phone-call" style="font-size:17px"></i>
               {{ site.PHONE }}
@@ -273,20 +268,20 @@ permalink: "contact/index.html"
     </div>
     <div class="contact-faq-grid">
       <div class="cfaq-item">
-        <h4><i class="ph ph-clock" style="color:var(--primary);margin-right:8px"></i>How fast can a heating technician arrive?</h4>
-        <p>In most metropolitan and suburban areas, our on-call technicians can arrive within 60–90 minutes for winter heating emergencies. Same day service is standard across our nationwide network.</p>
+        <h4><i class="ph ph-clock" style="color:var(--primary);margin-right:8px"></i>How fast can a breaker electrician arrive?</h4>
+        <p>In most metro and suburban areas, licensed on-call electricians arrive within 60–90 minutes for urgent breaker hazards. Same-day service is standard nationwide.</p>
       </div>
       <div class="cfaq-item">
-        <h4><i class="ph ph-tag" style="color:var(--primary);margin-right:8px"></i>Do you charge for diagnostics and estimates?</h4>
-        <p>Our technicians conduct an in-depth diagnostic inspection of your furnace or heat pump and present a clear, flat-rate written quote before performing any repair work. No hidden hourly fees.</p>
+        <h4><i class="ph ph-tag" style="color:var(--primary);margin-right:8px"></i>Do you provide upfront estimates?</h4>
+        <p>Yes. Your electrician tests your circuit breakers and bus bars first, explains the root fault, and gives a clear flat-rate written quote before starting any work.</p>
       </div>
       <div class="cfaq-item">
-        <h4><i class="ph ph-certificate" style="color:var(--primary);margin-right:8px"></i>Are your HVAC technicians certified?</h4>
-        <p>Yes. Every technician dispatched through our network is fully licensed, EPA Section 608 certified, insured, and thoroughly experienced with major gas, electric, and heat pump systems.</p>
+        <h4><i class="ph ph-certificate" style="color:var(--primary);margin-right:8px"></i>Are your electricians licensed?</h4>
+        <p>Every electrician dispatched through our network is state-licensed, insured, background-checked, and trained on modern NEC circuit breaker standards.</p>
       </div>
       <div class="cfaq-item">
-        <h4><i class="ph ph-moon" style="color:var(--primary);margin-right:8px"></i>Do you operate on winter nights and holidays?</h4>
-        <p>Absolutely. Heating emergencies peak during severe freezes and holiday cold snaps. Our emergency line is active 24/7/365 with live dispatchers standing by.</p>
+        <h4><i class="ph ph-moon" style="color:var(--primary);margin-right:8px"></i>Do you handle nights and weekend breaker outages?</h4>
+        <p>Absolutely. Burning breaker odors, buzzing panels, and main breaker outages cannot wait. Our emergency line is open 24/7/365.</p>
       </div>
     </div>
   </div>
@@ -295,11 +290,11 @@ permalink: "contact/index.html"
 {# ── CTA Strip #}
 <div class="cta-strip">
   <div class="container">
-    <h2>Don't Freeze — Restore Warmth in Your Home Today</h2>
-    <p>Our licensed HVAC technicians are ready with fully stocked mobile units. Call anytime for emergency furnace service.</p>
+    <h2>Restore Safe, Reliable Power Today</h2>
+    <p>Our licensed electricians are ready with fully stocked service vans carrying OEM breakers. Call 24/7 for fast service.</p>
     <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
-      {{ site.PHONE }} — Emergency Heating Line
+      {{ site.PHONE }} — Emergency Breaker Line
     </a>
   </div>
 </div>
@@ -307,12 +302,11 @@ permalink: "contact/index.html"
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  
+
   const form = this;
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
-  
-  // Disable button to prevent double submit
+
   const btn = form.querySelector('button[type="submit"]');
   const btnText = btn.innerHTML;
   if(btn) {
@@ -320,7 +314,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     btn.innerHTML = 'Sending...';
   }
 
-  // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxUz4maH7wogUAAq8AlwGRDPLPR9NNGNq13FuAu7sOdtO5T48ULLRiwKMe5kYcb7Rts/exec';
 
   fetch(scriptURL, {
@@ -331,10 +324,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
       'Content-Type': 'text/plain;charset=utf-8',
     }
   }).then(response => {
-    // Show Toast
-    showToast('Your heating service request has been received! Our dispatcher will call you shortly.');
-    
-    // Hide form and show success message
+    showToast('Your circuit breaker service request has been received! Our dispatcher will call you shortly.');
     form.style.display = 'none';
     const successMsg = document.getElementById('formSuccess');
     if(successMsg) successMsg.style.display = 'block';
@@ -352,18 +342,17 @@ function showToast(message) {
   if (!toast) {
     toast = document.createElement('div');
     toast.id = 'leads-toast';
-    toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:#ea580c;color:#fff;padding:16px 24px;border-radius:8px;box-shadow:0 10px 25px rgba(0,0,0,0.2);font-weight:600;z-index:9999;transition:opacity 0.3s;opacity:0;font-family:system-ui,sans-serif;';
+    toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:#2563eb;color:#fff;padding:16px 24px;border-radius:8px;box-shadow:0 10px 25px rgba(0,0,0,0.2);font-weight:600;z-index:9999;transition:opacity 0.3s;opacity:0;font-family:system-ui,sans-serif;';
     document.body.appendChild(toast);
   }
   toast.innerText = message;
   toast.style.opacity = '1';
-  
+
   setTimeout(() => {
     toast.style.opacity = '0';
   }, 4000);
 }
 
-// Urgency pill radio toggle
 document.querySelectorAll('.urgency-pill').forEach(function(label) {
   label.addEventListener('click', function() {
     document.querySelectorAll('.urgency-pill').forEach(l => l.classList.remove('active'));

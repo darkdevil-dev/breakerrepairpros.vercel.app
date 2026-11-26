@@ -1,87 +1,87 @@
 const services = [
   {
-    slug: 'furnace-repair',
-    title: 'Furnace Repair & Service',
-    description: 'Furnace blowing cold air, rattling, or failing to turn on? Our certified HVAC technicians provide 24/7 emergency furnace repair, flame sensor cleaning, igniter replacement, and complete diagnostic service to keep your home warm all winter.',
-    icon: '🔥',
-    image: 'furnace_repair.webp'
+    slug: 'circuit-breaker-repair',
+    title: 'Circuit Breaker Repair & Replacement',
+    description: 'Breaker tripping repeatedly, buzzing, or feeling warm to the touch? Our licensed electricians provide fast same-day circuit breaker repair and OEM single-pole or double-pole breaker replacements to restore safe power.',
+    icon: '⚡',
+    image: 'circuit-breaker-repair.webp'
   },
   {
-    slug: 'furnace-installation',
-    title: 'Furnace Installation & Replacement',
-    description: 'Upgrade to high-efficiency warmth with professional furnace installation. We install industry-leading gas and electric furnaces with up to 98% AFUE efficiency ratings, custom sheet metal ductwork, and dependable warranties.',
-    icon: '⚙️',
-    image: 'furnace_installation.webp'
+    slug: 'tripping-breaker-troubleshooting',
+    title: 'Tripping Breaker Troubleshooting',
+    description: 'Stop constantly resetting breakers. We isolate overloaded circuits, hidden short circuits, ground faults, and loose wire terminations using precision diagnostic meters so your circuits stay powered reliably.',
+    icon: '⚠️',
+    image: 'tripping-breaker-troubleshooting.webp'
   },
   {
-    slug: 'emergency-heating-repair',
-    title: '24/7 Emergency Heating Repair',
-    description: 'No heat during freezing winter weather? Do not risk freezing pipes or dangerous hypothermia. Our rapid-response HVAC technicians are on call 24 hours a day, 7 days a week for immediate emergency heating restoration.',
+    slug: 'main-breaker-replacement',
+    title: 'Main Breaker Repair & Replacement',
+    description: 'Lost power to the entire house while neighbors have electricity? Our master electricians replace failing 100A, 150A, and 200A main disconnect breakers, tighten main service lugs, and eliminate panel arcing.',
+    icon: '🔌',
+    image: 'main-breaker-replacement.webp'
+  },
+  {
+    slug: 'electrical-panel-upgrade',
+    title: 'Electrical Panel Upgrades (100A–200A)',
+    description: 'Upgrade outdated or undersized breaker boxes to modern 200-amp service panels. We eliminate double-tapped breakers, add ample circuit capacity for modern appliances, and ensure full NEC code compliance.',
+    icon: '🧰',
+    image: 'electrical-panel-upgrade.webp'
+  },
+  {
+    slug: 'emergency-breaker-repair',
+    title: '24/7 Emergency Breaker Repair',
+    description: 'Smell burning plastic from your breaker box, hear crackling, or see sparks? Our rapid-response emergency electricians are available 24/7 to stop electrical fire hazards and restore power safely.',
     icon: '🚨',
-    image: 'emergency_heating.webp'
+    image: 'emergency-breaker-repair.webp'
   },
   {
-    slug: 'heating-tuneup-maintenance',
-    title: 'Heating Tune-Up & Maintenance',
-    description: 'Avoid unexpected winter breakdowns and reduce heating bills with our multi-point seasonal heating tune-up. We clean burners, calibrate thermostats, inspect heat exchangers, test safety switches, and lubricate blower assemblies.',
-    icon: '🔧',
-    image: 'heating_tuneup.webp'
-  },
-  {
-    slug: 'heat-pump-repair',
-    title: 'Heat Pump Repair & Installation',
-    description: 'Keep your all-season heat pump running smoothly in cold conditions. We service reversing valves, defrost controls, auxiliary heating elements, and variable-speed inverter compressors for optimal winter heating efficiency.',
-    icon: '🔄',
-    image: 'heat_pump.webp'
-  },
-  {
-    slug: 'boiler-repair-service',
-    title: 'Boiler Repair & Radiant Heating',
-    description: 'Specialized hydronic heating and boiler solutions. We service cast iron and condensing boilers, bleed airbound radiators, repair zone valves, fix circulator pumps, and maintain radiant in-floor heating systems.',
-    icon: '♨️',
-    image: 'boiler_repair.webp'
-  },
-  {
-    slug: 'thermostat-repair-replacement',
-    title: 'Thermostat Repair & Installation',
-    description: 'Gain precision temperature control and save on monthly energy bills. We repair malfunctioning thermostats and expertly install smart programmable thermostats including Nest, Ecobee, and Honeywell Home.',
-    icon: '🌡️',
-    image: 'thermostat_service.webp'
-  },
-  {
-    slug: 'ductless-mini-split',
-    title: 'Ductless Mini-Split Services',
-    description: 'Experience customized zoned heating and cooling without bulky ductwork. We provide expert mini-split installation, multi-zone heat pump design, deep coil sanitization, and rapid repairs.',
-    icon: '❄️',
-    image: 'ductless_minisplit.webp'
-  },
-  {
-    slug: 'air-duct-cleaning-repair',
-    title: 'Air Duct Cleaning & Sealing',
-    description: 'Eliminate airborne allergens, dust, and airflow restrictions. We deliver high-powered negative air duct cleaning, antimicrobial sanitizing, ductwork insulation, and Aeroseal leak sealing to optimize furnace airflow.',
-    icon: '💨',
-    image: 'air_duct_cleaning.webp'
-  },
-  {
-    slug: 'indoor-air-quality',
-    title: 'Indoor Air Quality & Humidifiers',
-    description: 'Dry winter heating air irritates sinuses and damages wood floors. We install whole-home bypass humidifiers, MERV-16 hospital-grade filtration, and germicidal UV air purifiers seamlessly integrated with your furnace.',
-    icon: '✨',
-    image: 'indoor_air_quality.webp'
-  },
-  {
-    slug: 'gas-furnace-inspection',
-    title: 'Gas Furnace Safety Inspection',
-    description: 'Protect your household from silent carbon monoxide hazards. Our certified inspectors perform electronic combustible gas leak checks, combustion draft analysis, and microscopic thermal camera heat exchanger crack testing.',
+    slug: 'afci-gfci-breaker-service',
+    title: 'AFCI & GFCI Breaker Installation',
+    description: 'Protect your home from dangerous arc faults and shock hazards. We troubleshoot nuisance-tripping AFCI and GFCI breakers and install code-compliant combination protection for bedrooms, kitchens, and baths.',
     icon: '🛡️',
-    image: 'gas_furnace_inspection.webp'
+    image: 'afci-gfci-breaker-service.webp'
   },
   {
-    slug: 'commercial-hvac-services',
-    title: 'Commercial HVAC & Heating',
-    description: 'Reliable heating solutions for commercial properties, warehouses, restaurants, and retail spaces. We service rooftop package units (RTU), commercial boilers, make-up air units, and building automation controls.',
+    slug: 'subpanel-installation-repair',
+    title: 'Subpanel Installation & Repair',
+    description: 'Need extra breaker space for a garage, workshop, finished basement, hot tub, or ADU? We install and repair 60A–125A subpanels with properly sized feeder breakers and isolated neutral/ground bars.',
+    icon: '🔧',
+    image: 'subpanel-installation-repair.webp'
+  },
+  {
+    slug: 'fuse-box-to-breaker-conversion',
+    title: 'Fuse Box & FPE / Zinsco Replacement',
+    description: 'Replace dangerous vintage screw-in fuse boxes and recalled Federal Pacific (FPE) Stab-Lok or Zinsco panels with UL-listed modern breaker load centers that pass home insurance inspections.',
+    icon: '🔄',
+    image: 'fuse-box-conversion.webp'
+  },
+  {
+    slug: 'dedicated-circuit-breakers',
+    title: 'Dedicated 240V Circuit & Breaker Install',
+    description: 'Prevent appliance trips with dedicated 20A–60A circuits. We install heavy-duty double-pole breakers and wiring for HVAC condensers, EV Level 2 chargers, electric dryers, ranges, and sump pumps.',
+    icon: '🔋',
+    image: 'dedicated-circuit-breakers.webp'
+  },
+  {
+    slug: 'burnt-breaker-bus-bar-repair',
+    title: 'Burnt Breaker & Bus Bar Inspection',
+    description: 'Overheated breakers can pit and melt copper or aluminum bus bars. Our electricians perform thermal infrared breaker inspections, clean oxidized stabs, torque terminals to spec, and repair heat-damaged panels.',
+    icon: '🌡️',
+    image: 'burnt-breaker-inspection.webp'
+  },
+  {
+    slug: 'whole-home-surge-breakers',
+    title: 'Panel Surge Protection & Grounding',
+    description: 'Shield sensitive electronics and HVAC boards from lightning and grid spikes. We install Type 1 and Type 2 whole-house surge protective devices directly at your breaker panel and upgrade grounding rods.',
+    icon: '⚡',
+    image: 'surge-protection-breakers.webp'
+  },
+  {
+    slug: 'commercial-breaker-panel-service',
+    title: 'Commercial Breaker & Switchgear Service',
+    description: 'Keep commercial spaces powered without costly downtime. We service 3-phase breaker panels, commercial disconnect switches, heavy-duty bolt-on breakers, and balanced load distribution.',
     icon: '🏢',
-    image: 'commercial_hvac.webp'
+    image: 'commercial-breaker-service.webp'
   }
 ];
 

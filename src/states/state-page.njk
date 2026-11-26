@@ -13,33 +13,42 @@ eleventyComputed:
 
 {# ── Service Icon Map ──────────────────────────────────────────────────── #}
 {% set serviceIcons = {
-  'furnace-repair': 'ph-flame',
-  'furnace-installation': 'ph-gear',
-  'emergency-heating-repair': 'ph-siren',
-  'heating-tuneup-maintenance': 'ph-wrench',
-  'heat-pump-repair': 'ph-arrows-clockwise',
-  'boiler-repair-service': 'ph-drop',
-  'thermostat-repair-replacement': 'ph-thermometer',
-  'ductless-mini-split': 'ph-wind',
-  'air-duct-cleaning-repair': 'ph-fan',
-  'indoor-air-quality': 'ph-sparkle',
-  'gas-furnace-inspection': 'ph-shield-check',
-  'commercial-hvac-services': 'ph-buildings'
+  'circuit-breaker-repair': 'ph-lightning',
+  'tripping-breaker-troubleshooting': 'ph-warning-octagon',
+  'main-breaker-replacement': 'ph-power',
+  'electrical-panel-upgrade': 'ph-plugs-connected',
+  'emergency-breaker-repair': 'ph-siren',
+  'afci-gfci-breaker-service': 'ph-shield-check',
+  'subpanel-installation-repair': 'ph-squares-four',
+  'fuse-box-to-breaker-conversion': 'ph-arrows-clockwise',
+  'dedicated-circuit-breakers': 'ph-charging-station',
+  'burnt-breaker-bus-bar-repair': 'ph-thermometer-hot',
+  'whole-home-surge-breakers': 'ph-shield-plus',
+  'commercial-breaker-panel-service': 'ph-buildings'
 } %}
 
 {# ── Schemas ───────────────────────────────────────────────────────────── #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  "name": "{{ site.BRAND }} - {{ state.name }}",
-  "image": "{{ site.DOMAIN }}/favicon.svg",
+  "@type": "Service",
+  "name": "Circuit Breaker Repair in {{ state.name }}",
+  "serviceType": "Circuit Breaker Repair & Electrical Panel Upgrades",
+  "provider": { "@id": "{{ site.DOMAIN }}/#organization" },
   "url": "{{ site.DOMAIN }}/{{ state.slug }}/",
-  "telephone": "{{ site.PHONE }}",
-  "priceRange": "$$",
   "areaServed": {
     "@type": "State",
     "name": "{{ state.name }}"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "{{ site.PHONE }}",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
+    }
   }
 }
 </script>
@@ -84,21 +93,20 @@ eleventyComputed:
 {# ── Banner ────────────────────────────────────────────────────────────── #}
 <div class="rs-banner">
   <div class="banner-bg">
-    <img src="/assets/images/global_hero.webp" alt="Heating Background" loading="lazy">
+    <img src="/assets/images/global_hero.webp" alt="Circuit Breaker Panel Background" loading="lazy">
   </div>
   <div class="container" style="position:relative;z-index:2">
     <div class="banner-row" style="justify-content:center">
       <div class="banner-content-col">
         <div class="banner-content banner-content-centered">
           <div class="sub-label">
-            <span class="live-dot"></span> {{ state.name }} Heating Specialists
+            <span class="live-dot"></span> {{ state.name }} Circuit Breaker Specialists
           </div>
           <h1 class="title">{{ h1Title }}</h1>
           <p class="description">
-            Your trusted heating &amp; furnace repair network in {{ state.name }}. Fast 24/7 dispatch for
-            emergency furnace repairs, seasonal heating tune-ups, heat pump servicing, 
-            boiler diagnostics, gas safety inspections, and system replacements —
-            serving {{ state.cities.length }} cities across {{ state.name }}.
+            Connect with state-licensed local electricians across {{ state.name }} for 24/7 circuit breaker repair,
+            tripping circuit troubleshooting, main disconnect swaps, AFCI/GFCI protection,
+            and 200A panel upgrades — covering {{ state.cities.length }} {{ state.name }} cities and towns.
           </p>
           <div class="btn-part" style="display:flex; justify-content:center; width:100%; margin:30px auto 0;">
             <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
@@ -111,7 +119,7 @@ eleventyComputed:
       <div class="banner-img-box">
         <picture>
           <source media="(max-width: 767px)" srcset="/assets/images/mobile_hero.webp">
-          <img src="/assets/images/global_hero.webp" alt="Certified HVAC technician at work in {{ state.name }}" width="800" height="600" loading="eager" decoding="async">
+          <img src="/assets/images/global_hero.webp" alt="Licensed electrician inspecting breaker panel in {{ state.name }}" width="800" height="600" loading="eager" decoding="async">
         </picture>
       </div>
     </div>
@@ -125,18 +133,18 @@ eleventyComputed:
       <div class="counter-list">
         <div class="counter-text">
           <div class="counter-icon">
-            <i class="ph ph-shield-check" style="font-size:26px;color:#fbbf24"></i>
+            <i class="ph ph-shield-check" style="font-size:26px;color:#38bdf8"></i>
           </div>
           <div class="counter-number">
-            <div class="count-row"><span class="rs-count">100</span><span class="prefix">%</span></div>
-            <h5 class="title">Licensed Network</h5>
+            <div class="count-row"><span class="rs-count">NEC</span><span class="prefix">Code</span></div>
+            <h5 class="title">{{ state.abbr }} Compliant Repairs</h5>
           </div>
         </div>
       </div>
       <div class="counter-list">
         <div class="counter-text">
           <div class="counter-icon">
-            <i class="ph ph-clock" style="font-size:26px;color:#fbbf24"></i>
+            <i class="ph ph-clock" style="font-size:26px;color:#38bdf8"></i>
           </div>
           <div class="counter-number">
             <div class="count-row"><span class="rs-count">24</span><span class="prefix">/7</span></div>
@@ -147,7 +155,7 @@ eleventyComputed:
       <div class="counter-list">
         <div class="counter-text">
           <div class="counter-icon">
-            <i class="ph ph-map-pin" style="font-size:26px;color:#fbbf24"></i>
+            <i class="ph ph-map-pin" style="font-size:26px;color:#38bdf8"></i>
           </div>
           <div class="counter-number">
             <div class="count-row"><span class="rs-count">{{ state.cities.length }}</span><span class="prefix">+</span></div>
@@ -162,34 +170,33 @@ eleventyComputed:
 {# ── Services Grid ─────────────────────────────────────────────────────── #}
 <div class="rs-services">
   <div class="container">
-    <h2>Professional Heating & Furnace Services in {{ state.name }}</h2>
+    <h2>Circuit Breaker &amp; Panel Services in {{ state.name }}</h2>
     <div class="services-row">
       {% for svc in services %}
       <div class="services-slider">
         <div class="services-item">
           <a href="/services/{{ svc.slug }}/" class="card-link" aria-label="{{ svc.title }} in {{ state.name }}"></a>
-          
+
           {% if svc.image %}
           <div class="services-card-img">
-            <img src="/assets/images/{{ svc.image }}" alt="{{ svc.title }}" loading="lazy">
+            <img src="/assets/images/{{ svc.image }}" alt="{{ svc.title }} in {{ state.name }}" loading="lazy" width="800" height="600">
           </div>
           {% endif %}
           <div class="services-icon-bar">
             <div class="svc-icon">
-              <i class="ph {{ serviceIcons[svc.slug] or 'ph-flame' }}"></i>
+              <i class="ph {{ serviceIcons[svc.slug] or 'ph-lightning' }}"></i>
             </div>
           </div>
           <div class="services-content">
             <h3 class="title">
-              <a href="/services/{{ svc.slug }}/">{{ svc.title }} in {{ state.name }}</a>
+              <a href="/services/{{ svc.slug }}/">{{ svc.title }}</a>
             </h3>
             <p class="description">
-              Looking for {{ svc.title | lower }} in {{ state.name }}? Contact {{ site.BRAND }} at
-              {{ site.PHONE }} for fast, certified heating service. {{ svc.description.split('.')[0] }}.
+              {{ svc.description }}
             </p>
             <div class="services-btn">
-              <a href="{{ site.PHONE_HREF }}">
-                <span class="btn-text">Get Quotes</span>
+              <a href="/services/{{ svc.slug }}/">
+                <span class="btn-text">Service Details</span>
                 <span class="arrow-icon">
                   <i class="ph ph-arrow-right" style="font-size:12px"></i>
                 </span>
@@ -208,19 +215,19 @@ eleventyComputed:
   <div class="container">
     <div class="choose-grid">
       <div class="choose-img">
-        <img src="/assets/images/furnace_repair.webp" alt="Certified heating technicians in {{ state.name }} equipped with top-tier tools for residential and commercial heating." loading="lazy" width="600" height="450">
+        <img src="/assets/images/circuit-breaker-repair.webp" alt="Licensed electricians in {{ state.name }} equipped for residential and commercial breaker repair" loading="lazy" width="800" height="600">
       </div>
       <div>
         <div class="sec-title4">
           <div class="sub-line"></div>
           <span class="sub-text">
             <i class="ph ph-shield-check" style="font-size:13px"></i>
-            Why Choose Us
+            Local Electrical Standards
           </span>
-          <h2>Best Heating & Furnace Experts in {{ state.name }}</h2>
-          <p>{{ whyChooseContent.p1 }}</p>
-          <p>{{ whyChooseContent.p2 }}</p>
-          <p>{{ localRiskText }}</p>
+          <h2>Best Circuit Breaker Experts in {{ state.name }}</h2>
+          {{ whyChooseContent | safe }}
+          <h3>{{ regionalRisk.title }}</h3>
+          <p>{{ regionalRisk.text }}</p>
           <div style="margin-top:26px">
             <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
               <i class="ph ph-phone-call" style="font-size:17px"></i>
@@ -242,29 +249,29 @@ eleventyComputed:
           <div class="sub-line"></div>
           <span class="sub-text">
             <i class="ph ph-info" style="font-size:13px"></i>
-            Who We Are
+            Statewide Dispatch Coverage
           </span>
-          <h2>{{ state.name }} Heating & HVAC Pros</h2>
-          
+          <h2>{{ state.name }} Breaker &amp; Panel Pros</h2>
+
           {{ whoWeAreContent | safe }}
 
           <p style="margin-top:20px;">
-            We serve {{ state.name }} communities with same day and 24/7 emergency furnace repair and heating services.
+            We coordinate same-day and 24/7 emergency circuit breaker repair and panel service across {{ state.name }}.
           </p>
         </div>
         <div class="about-mini">
           <div class="mini-card">
-            <h4><i class="ph ph-house-line" style="font-size:14px"></i> Residential Heating</h4>
-            <p>Complete furnace repair, heat pump, and heating tune-up services for homes in {{ state.name }}.</p>
+            <h4><i class="ph ph-house-line" style="font-size:14px"></i> Residential Breakers</h4>
+            <p>Tripping breakers, AFCI/GFCI swaps, main breakers &amp; 200A panel upgrades in {{ state.name }}.</p>
           </div>
           <div class="mini-card">
-            <h4><i class="ph ph-buildings" style="font-size:14px"></i> Commercial HVAC</h4>
-            <p>Fast commercial rooftop heating and furnace repairs to minimize downtime in {{ state.name }}.</p>
+            <h4><i class="ph ph-buildings" style="font-size:14px"></i> Commercial Panels</h4>
+            <p>Fast 3-phase breaker repairs and commercial disconnects across {{ state.name }}.</p>
           </div>
         </div>
       </div>
       <div class="choose-img">
-        <img src="/assets/images/emergency_heating.webp" alt="Top-rated heating company in {{ state.name }} specializing in emergency furnace repair and seasonal maintenance." loading="lazy" width="600" height="450">
+        <img src="/assets/images/emergency-breaker-repair.webp" alt="24/7 emergency circuit breaker repair specialists in {{ state.name }}" loading="lazy" width="800" height="600">
       </div>
     </div>
   </div>
@@ -274,31 +281,31 @@ eleventyComputed:
 <div class="rs-map">
   <div class="container">
     <div class="map-frame">
-      <iframe src="https://maps.google.com/maps?q={{ state.name | urlencode }}%20USA&t=&z=7&ie=UTF8&iwloc=&output=embed" width="100%" height="360" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of {{ state.name }}"></iframe>
+      <iframe src="https://maps.google.com/maps?q={{ state.name | urlencode }}%20USA&t=&z=7&ie=UTF8&iwloc=&output=embed" width="100%" height="360" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of {{ state.name }}, USA"></iframe>
     </div>
   </div>
 </div>
 
-{# ── FAQ ───────────────────────────────────────────────────────────────── #}
+{# ── FAQ (JSON-LD handled cleanly at top — no duplicate microdata) ─────── #}
 <div class="rs-faq">
   <div class="container">
     <h2 class="faq-inner-title">
       <i class="ph ph-chat-circle-dots" style="font-size:26px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
-      Frequently Asked Questions About Heating & Furnace Repair in {{ state.name }}
+      Frequently Asked Questions About Breaker Repair in {{ state.name }}
     </h2>
     <div class="faq-grid">
       <div class="faq-img">
-        <img src="/assets/images/gas_furnace_inspection.webp" alt="Frequently asked furnace repair questions in {{ state.name }}. Certified HVAC contractors serving {{ state.name }}." loading="lazy" width="600" height="450">
+        <img src="/assets/images/burnt-breaker-inspection.webp" alt="Thermal inspection of electrical breaker panel in {{ state.name }}" loading="lazy" width="800" height="600">
       </div>
-      <div class="accordion" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="accordion">
         {% for faq in faqs %}
-        <div class="acc-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <button class="acc-question" itemprop="name" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+        <div class="acc-item">
+          <button class="acc-question" aria-expanded="{{ 'true' if loop.first else 'false' }}">
             {{ faq.q }}
             <span class="acc-icon">+</span>
           </button>
-          <div class="acc-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">{{ faq.a }}</p>
+          <div class="acc-answer">
+            <p>{{ faq.a }}</p>
           </div>
         </div>
         {% endfor %}
@@ -307,15 +314,15 @@ eleventyComputed:
   </div>
 </div>
 
-{# ── Testimonials ──────────────────────────────────────────────────────── #}
+{# ── Service Feedback ──────────────────────────────────────────────────── #}
 <div class="rs-testimonial">
   <div class="container">
     <div class="sec-inner-title">
       <span class="sub-text">
-        <i class="ph ph-star" style="font-size:13px"></i>
-        Testimonials
+        <i class="ph ph-shield-check" style="font-size:13px"></i>
+        Service Feedback
       </span>
-      <h2>What Our Clients Say About Our Heating Services in {{ state.name }}</h2>
+      <h2>Typical Breaker &amp; Panel Scenarios in {{ state.name }}</h2>
     </div>
     <div class="testi-grid">
       {% for t in testimonials %}
@@ -338,7 +345,7 @@ eleventyComputed:
   <div class="container">
     <h2>
       <i class="ph ph-map-trifold" style="font-size:26px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
-      Find Furnace Repair & Heating in {{ state.name }} Cities
+      Find Circuit Breaker Repair in {{ state.name }} Cities
     </h2>
     <div class="addon-row">
       {% for city in state.cities %}
@@ -364,8 +371,8 @@ eleventyComputed:
 {# ── CTA ───────────────────────────────────────────────────────────────── #}
 <div class="cta-strip">
   <div class="container">
-    <h2>Need Furnace Repair in {{ state.name }}? Call Now</h2>
-    <p>Our certified heating specialists are standing by 24/7 for emergency furnace service across all of {{ state.name }}.</p>
+    <h2>Need Circuit Breaker Repair in {{ state.name }}? Call Now</h2>
+    <p>Licensed local electricians are available 24/7 for tripping breakers, burnt panels, and emergency repairs across {{ state.name }}.</p>
     <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
       {{ site.PHONE }} — Call Now

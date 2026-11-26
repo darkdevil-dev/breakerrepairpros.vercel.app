@@ -1,20 +1,23 @@
 ---
 layout: layout.njk
-title: "Professional Heating & Furnace Repair Services | HVAC Experts Pros"
-description: "Explore our professional heating & HVAC services. Connect with licensed technicians for furnace repairs, emergency service, heat pump care, and seasonal tune-ups."
+title: "Circuit Breaker Repair & Panel Upgrade Services | Breaker Repair Pros"
+description: "Explore our specialized circuit breaker repair services. Connect with licensed local electricians for tripping breaker troubleshooting, main breaker swaps, AFCI/GFCI protection, and 200A panel upgrades."
 permalink: "services/index.html"
 ---
 
-{# ——— Schemas —————————————————————————————————————————————————————————— #}
+{# ── Schemas ───────────────────────────────────────────────────────────── #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
+  "@type": "CollectionPage",
   "name": "{{ site.BRAND }} - Services",
   "url": "{{ site.DOMAIN }}/services/",
-  "image": "{{ site.DOMAIN }}/favicon.svg",
-  "telephone": "{{ site.PHONE }}",
-  "priceRange": "$$"
+  "about": {
+    "@type": "Service",
+    "serviceType": "Circuit Breaker Repair & Electrical Panel Upgrades",
+    "provider": { "@id": "{{ site.DOMAIN }}/#organization" },
+    "areaServed": { "@type": "Country", "name": "United States" }
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -30,18 +33,18 @@ permalink: "services/index.html"
 
 {# ── Service Icon Map ──────────────────────────────────────────────────── #}
 {% set serviceIcons = {
-  'furnace-repair': 'ph-flame',
-  'furnace-installation': 'ph-gear',
-  'emergency-heating-repair': 'ph-siren',
-  'heating-tuneup-maintenance': 'ph-wrench',
-  'heat-pump-repair': 'ph-arrows-clockwise',
-  'boiler-repair-service': 'ph-drop',
-  'thermostat-repair-replacement': 'ph-thermometer',
-  'ductless-mini-split': 'ph-wind',
-  'air-duct-cleaning-repair': 'ph-fan',
-  'indoor-air-quality': 'ph-sparkle',
-  'gas-furnace-inspection': 'ph-shield-check',
-  'commercial-hvac-services': 'ph-buildings'
+  'circuit-breaker-repair': 'ph-lightning',
+  'tripping-breaker-troubleshooting': 'ph-warning-octagon',
+  'main-breaker-replacement': 'ph-power',
+  'electrical-panel-upgrade': 'ph-plugs-connected',
+  'emergency-breaker-repair': 'ph-siren',
+  'afci-gfci-breaker-service': 'ph-shield-check',
+  'subpanel-installation-repair': 'ph-squares-four',
+  'fuse-box-to-breaker-conversion': 'ph-arrows-clockwise',
+  'dedicated-circuit-breakers': 'ph-charging-station',
+  'burnt-breaker-bus-bar-repair': 'ph-thermometer-hot',
+  'whole-home-surge-breakers': 'ph-shield-plus',
+  'commercial-breaker-panel-service': 'ph-buildings'
 } %}
 
 {# ── Breadcrumb ────────────────────────────────────────────────────────── #}
@@ -59,20 +62,20 @@ permalink: "services/index.html"
 {# ── Banner ────────────────────────────────────────────────────────────── #}
 <div class="rs-banner">
   <div class="banner-bg">
-    <img src="/assets/images/global_hero.webp" alt="HVAC Furnace Background" loading="lazy">
+    <img src="/assets/images/global_hero.webp" alt="Circuit Breaker Panel Background" loading="lazy">
   </div>
   <div class="container" style="position:relative;z-index:2">
     <div class="banner-row" style="justify-content:center">
       <div class="banner-content-col">
         <div class="banner-content banner-content-centered">
           <div class="sub-label">
-            <span class="live-dot"></span> Professional Heating Services
+            <span class="live-dot"></span> Professional Breaker Services
           </div>
           <h1 class="title">
-            Heating &amp; Furnace Services <span id="svcLocationSpan">Nationwide</span>
+            Circuit Breaker &amp; Panel Services <span id="svcLocationSpan">Nationwide</span>
           </h1>
           <p class="description" id="svcBannerDesc">
-            Connect with certified independent HVAC technicians. Call our dispatch team 24/7 for prompt diagnostic support, seasonal maintenance, heat pump repairs, boiler restoration, and emergency heating relief.
+            Connect with licensed independent electricians 24/7 for tripping breaker troubleshooting, OEM circuit breaker replacement, main disconnect repairs, AFCI/GFCI protection, and 200A panel upgrades.
           </p>
           <div class="btn-part" style="display:flex; justify-content:center; width:100%; margin:30px auto 0;">
             <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
@@ -89,13 +92,13 @@ permalink: "services/index.html"
 {# ── Services Grid ─────────────────────────────────────────────────────── #}
 <div class="rs-services">
   <div class="container">
-    <h2>Specialized Heating &amp; Furnace Solutions <span class="js-loc-h2"></span></h2>
+    <h2>Specialized Circuit Breaker &amp; Panel Solutions <span class="js-loc-h2"></span></h2>
     <div class="services-row">
       {% for svc in services %}
       <div class="services-slider">
         <div class="services-item">
           <a href="/services/{{ svc.slug }}/" class="card-link js-svc-link" data-slug="{{ svc.slug }}" aria-label="{{ svc.title }}"></a>
-          
+
           {% if svc.image %}
           <div class="services-card-img">
             <img src="/assets/images/{{ svc.image }}" alt="{{ svc.title }}" loading="lazy">
@@ -103,7 +106,7 @@ permalink: "services/index.html"
           {% endif %}
           <div class="services-icon-bar">
             <div class="svc-icon">
-              <i class="ph {{ serviceIcons[svc.slug] or 'ph-flame' }}"></i>
+              <i class="ph {{ serviceIcons[svc.slug] or 'ph-lightning' }}"></i>
             </div>
           </div>
           <div class="services-content">
@@ -134,8 +137,8 @@ permalink: "services/index.html"
 {# ── CTA Strip ─────────────────────────────────────────────────────────── #}
 <div class="cta-strip">
   <div class="container">
-    <h2 id="svcCtaH2">Need Reliable Heating Diagnostics or Repairs?</h2>
-    <p>Our licensed independent HVAC contractor network is available 24/7 for prompt scheduling and emergency service.</p>
+    <h2 id="svcCtaH2">Need Circuit Breaker Diagnostics or Repair?</h2>
+    <p>Our licensed independent electrician network is available 24/7 for prompt scheduling and emergency service.</p>
     <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
       {{ site.PHONE }} — Call Now
@@ -158,43 +161,36 @@ permalink: "services/index.html"
 
   var locText = 'in ' + loc.stateName;
   var locLower = locText.toLowerCase();
-  
+
   if (loc.cityName) {
     locText = 'in ' + loc.cityName + ', ' + loc.stateAbbr;
     locLower = locText.toLowerCase();
   }
 
-  // Update h1 span
   var locSpan = document.getElementById('svcLocationSpan');
   if (locSpan) locSpan.textContent = locText;
 
-  // Update banner description
   var desc = document.getElementById('svcBannerDesc');
   if (desc) {
     desc.textContent = loc.cityName
-      ? 'Professional heating and furnace services in ' + loc.cityName + ', ' + loc.stateName + '. Same day service available — call us 24/7 for emergency furnace repair, tune-ups, boiler maintenance & more.'
-      : 'Your trusted local furnace and heating services in ' + loc.stateName + '. Same day service available — call us 24/7 for emergency furnace repair, tune-ups, boiler maintenance & more.';
+      ? 'Professional circuit breaker repair and panel services in ' + loc.cityName + ', ' + loc.stateName + '. Same-day dispatch available — call 24/7 for tripping breakers, main breaker replacement & panel upgrades.'
+      : 'Your trusted local circuit breaker repair and panel services in ' + loc.stateName + '. Same-day dispatch available — call 24/7 for tripping breakers, main breaker replacement & panel upgrades.';
   }
 
-  // Update inline location spans
   document.querySelectorAll('.js-loc-inline').forEach(function (el) { el.textContent = locText; });
   document.querySelectorAll('.js-loc-inline-lower').forEach(function (el) { el.textContent = locLower; });
   document.querySelectorAll('.js-loc-h2').forEach(function (el) { el.textContent = locText; });
 
-  // Update CTA h2
   var ctaH2 = document.getElementById('svcCtaH2');
-  if (ctaH2) ctaH2.textContent = 'Need Furnace Repair ' + locText + '?';
+  if (ctaH2) ctaH2.textContent = 'Need Circuit Breaker Repair ' + locText + '?';
 
-  // Update service card links (keep clean URL)
   document.querySelectorAll('a.js-svc-link').forEach(function (el) {
     var slug = el.getAttribute('data-slug');
     if (slug) el.setAttribute('href', '/services/' + slug + '/');
   });
 
-  // Update document title
-  document.title = 'Professional Heating & Furnace Services ' + locText + ' | {{ site.BRAND }}';
+  document.title = 'Circuit Breaker & Panel Services ' + locText + ' | {{ site.BRAND }}';
 
-  // Build breadcrumb
   var bc = document.getElementById('svcBreadcrumb');
   if (bc) {
     var extra = '';

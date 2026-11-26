@@ -1,20 +1,18 @@
 ---
 layout: layout.njk
-title: "About Our Nationwide Network of Licensed Heating & Furnace Specialists"
-description: "Learn about HVAC Experts Pros and our nationwide network of licensed HVAC technicians. 24/7 emergency furnace repair, heating maintenance, and installations."
+title: "About Our Nationwide Network of Circuit Breaker Specialists | Breaker Repair Pros"
+description: "Learn about Breaker Repair Pros and our nationwide network of licensed electricians. 24/7 emergency circuit breaker repair, tripping breaker diagnostics, and 200A panel upgrades."
 permalink: "about/index.html"
 ---
 
-{# ——— Schemas —————————————————————————————————————————————————————————— #}
+{# ── Schemas ───────────────────────────────────────────────────────────── #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  "name": "{{ site.BRAND }} - About Us",
+  "@type": "AboutPage",
+  "name": "About {{ site.BRAND }}",
   "url": "{{ site.DOMAIN }}/about/",
-  "image": "{{ site.DOMAIN }}/favicon.svg",
-  "telephone": "{{ site.PHONE }}",
-  "priceRange": "$$"
+  "mainEntity": { "@id": "{{ site.DOMAIN }}/#organization" }
 }
 </script>
 <script type="application/ld+json">
@@ -48,8 +46,8 @@ permalink: "about/index.html"
         <span class="sub-label">
           <span class="live-dot"></span> About Our Service
         </span>
-        <h1>Nationwide <span>Heating &amp; Furnace</span> Specialist Network</h1>
-        <p>When unexpected heating failures occur during cold weather, prompt service is essential. {{ site.BRAND }} connects homeowners and property managers with certified, independent local HVAC and furnace contractors across all 50 states — reliable, professional, and available 24/7.</p>
+        <h1>Nationwide <span>Circuit Breaker &amp; Panel</span> Specialist Network</h1>
+        <p>When breakers keep tripping, panels buzz, or main disconnects fail, fast expert help matters. {{ site.BRAND }} connects homeowners and businesses with state-licensed, insured local electricians across all 50 states — reliable, code-compliant, and available 24/7.</p>
         <div class="about-hero-stats">
           <div class="ah-stat">
             <strong>100%</strong>
@@ -80,12 +78,12 @@ permalink: "about/index.html"
         </div>
       </div>
       <div class="about-hero-img">
-        <img src="/assets/images/global_hero.webp" alt="Certified HVAC technician inspecting furnace burner — HVAC Experts Pros nationwide network" width="800" height="600" loading="lazy" decoding="async">
+        <img src="/assets/images/global_hero.webp" alt="Licensed electrician inspecting a residential circuit breaker panel — {{ site.BRAND }}" width="800" height="600" loading="lazy" decoding="async">
         <div class="about-badge">
           <i class="ph ph-certificate" style="font-size:28px;color:var(--primary)"></i>
           <div>
-            <strong>NATE-Certified</strong>
-            <span>& Fully Insured</span>
+            <strong>NEC Code Compliant</strong>
+            <span>Licensed &amp; Insured</span>
           </div>
         </div>
       </div>
@@ -98,31 +96,31 @@ permalink: "about/index.html"
   <div class="container">
     <div class="trust-grid">
       <div class="trust-item">
-        <i class="ph ph-certificate" style="font-size:28px;color:var(--primary)"></i>
+        <i class="ph ph-certificate" style="font-size:28px;color:var(--accent)"></i>
         <div>
-          <strong>Licensed & EPA Certified</strong>
-          <span>Every HVAC technician fully vetted and certified</span>
+          <strong>Licensed Electricians</strong>
+          <span>Vetted, insured &amp; state-licensed electrical pros</span>
         </div>
       </div>
       <div class="trust-item">
-        <i class="ph ph-clock-countdown" style="font-size:28px;color:var(--primary)"></i>
+        <i class="ph ph-clock-countdown" style="font-size:28px;color:var(--accent)"></i>
         <div>
-          <strong>Rapid Winter Dispatch</strong>
-          <span>Fast emergency heating response anywhere in the USA</span>
+          <strong>24/7 Breaker Dispatch</strong>
+          <span>Fast emergency electrical response across the USA</span>
         </div>
       </div>
       <div class="trust-item">
-        <i class="ph ph-tag" style="font-size:28px;color:var(--primary)"></i>
+        <i class="ph ph-tag" style="font-size:28px;color:var(--accent)"></i>
         <div>
           <strong>Upfront Flat-Rate Pricing</strong>
-          <span>Clear written quotes before repair work begins</span>
+          <span>Clear written quotes before any breaker work starts</span>
         </div>
       </div>
       <div class="trust-item">
-        <i class="ph ph-shield-check" style="font-size:28px;color:var(--primary)"></i>
+        <i class="ph ph-shield-check" style="font-size:28px;color:var(--accent)"></i>
         <div>
-          <strong>100% Satisfaction Guarantee</strong>
-          <span>Heating repairs backed by warranty on parts and labor</span>
+          <strong>OEM UL-Listed Parts</strong>
+          <span>Square D, Eaton, Siemens &amp; GE breakers stocked</span>
         </div>
       </div>
     </div>
@@ -140,10 +138,10 @@ permalink: "about/index.html"
             <i class="ph ph-book-open" style="font-size:13px"></i>
             Our Story
           </span>
-          <h2>Built on a Simple Promise: Warmth & Safety When You Need It Most</h2>
-          <p>{{ site.BRAND }} was established with a singular mission — ensure no family or business is left in the dangerous cold during freezing weather. We recognize how critical, stressful, and hazardous a heating breakdown can be in the dead of winter, and we built the fastest dispatch network to solve it.</p>
-          <p>We enforce a rigorous verification standard so every technician in our network is licensed, bonded, insured, and certified with major furnace manufacturers. Rather than generic listings, our network mobilizes certified heating contractors operating fully stocked mobile service vans with igniters, blower motors, pressure switches, and gas valves ready on the first trip.</p>
-          <p>Today, {{ site.BRAND }} has assisted over 500,000 customers across all 50 states with everything from midnight gas furnace ignition repairs and cracked heat exchanger replacements to complete high-efficiency heat pump and commercial rooftop heating installations.</p>
+          <h2>Built on Electrical Safety, Speed &amp; Honest Pricing</h2>
+          <p>{{ site.BRAND }} was created to solve a common homeowner frustration: finding a qualified electrician quickly when a circuit breaker trips, buzzes, smells hot, or shuts off essential power.</p>
+          <p>We connect customers with vetted local electrical contractors whose trucks carry common single-pole, double-pole, AFCI, GFCI, and 100A–200A main breakers along with thermal imaging cameras and digital clamp meters for accurate first-visit repairs.</p>
+          <p>Today, our network helps homeowners and commercial facility managers nationwide with everything from single tripping breaker swaps and FPE/Zinsco replacements to full 200-amp service panel upgrades.</p>
         </div>
       </div>
       <div class="about-values">
@@ -151,28 +149,28 @@ permalink: "about/index.html"
           <div class="value-icon"><i class="ph ph-target" style="font-size:26px;color:var(--primary)"></i></div>
           <div>
             <h4>Our Mission</h4>
-            <p>Connect every American homeowner and facility manager with verified, licensed heating and HVAC contractors — fast, fair, and reliable.</p>
+            <p>Connect every property owner with licensed, code-compliant circuit breaker electricians — fast, transparent, and safety-focused.</p>
           </div>
         </div>
         <div class="value-card">
           <div class="value-icon"><i class="ph ph-eye" style="font-size:26px;color:var(--primary)"></i></div>
           <div>
             <h4>Our Vision</h4>
-            <p>To stand as America's premier winter heating and HVAC service dispatch network — trusted for emergency response when temperatures plunge.</p>
+            <p>Be America's most trusted dispatch network for residential and commercial circuit breaker diagnostics and panel modernization.</p>
           </div>
         </div>
         <div class="value-card">
           <div class="value-icon"><i class="ph ph-heart" style="font-size:26px;color:var(--primary)"></i></div>
           <div>
             <h4>Our Values</h4>
-            <p>Safety, honesty, technical excellence, and rapid response. We safeguard every home against freeze hazards and carbon monoxide risks.</p>
+            <p>Fire prevention, honest flat-rate pricing, NEC compliance, and never cutting corners on wire sizing or breaker safety.</p>
           </div>
         </div>
         <div class="value-card">
           <div class="value-icon"><i class="ph ph-check-circle" style="font-size:26px;color:var(--primary)"></i></div>
           <div>
             <h4>Our Standard</h4>
-            <p>EPA Section 608 and NATE compliant technicians. Thorough flue gas and CO testing, strict code compliance, and guaranteed workmanship.</p>
+            <p>UL-listed OEM breakers, proper lug torque specifications, thermal hotspot checks, and clean panel directory labeling.</p>
           </div>
         </div>
       </div>
@@ -180,32 +178,32 @@ permalink: "about/index.html"
   </div>
 </div>
 
-{# ── Why Choose Us — Process #}
+{# ── Process #}
 <div class="rs-process" style="background:var(--gray-bg)">
   <div class="container">
     <div class="sec-center">
       <span class="sub-label"><i class="ph ph-list-numbers" style="font-size:12px"></i> How We Work</span>
-      <h2>Getting Heating & Furnace Help Has Never Been Easier</h2>
-      <p class="sec-desc">Three simple steps from your initial phone call to restored indoor warmth and safety.</p>
+      <h2>Getting Circuit Breaker Repair Has Never Been Easier</h2>
+      <p class="sec-desc">Three simple steps from your phone call to safe, reliable electrical power.</p>
     </div>
     <div class="process-grid">
       <div class="process-step">
         <div class="step-num">01</div>
         <div class="step-icon"><i class="ph ph-phone-call" style="font-size:32px;color:var(--primary)"></i></div>
-        <h3>Call 24/7 Heating Dispatch</h3>
-        <p>Dial <a href="{{ site.PHONE_HREF }}" style="color:var(--primary);font-weight:700">{{ site.PHONE }}</a> any time of day or night. Our dispatch desk instantly locates the nearest available licensed HVAC technician equipped for your system.</p>
+        <h3>Call 24/7 Breaker Dispatch</h3>
+        <p>Dial <a href="{{ site.PHONE_HREF }}" style="color:var(--primary);font-weight:700">{{ site.PHONE }}</a> any time. Our dispatch desk locates an available licensed electrician in your local area.</p>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-icon"><i class="ph ph-magnifying-glass" style="font-size:32px;color:var(--primary)"></i></div>
-        <h3>Diagnostic & Firm Quote</h3>
-        <p>Your heating specialist inspects electrical controls, gas burners, safety switches, and heat exchangers, presenting an upfront flat-rate repair quote before starting.</p>
+        <h3>Panel Diagnostic &amp; Quote</h3>
+        <p>Your technician inspects breaker terminals, bus bars, load amp draw, and branch wiring, then presents an upfront written quote.</p>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
         <div class="step-icon"><i class="ph ph-wrench" style="font-size:32px;color:var(--primary)"></i></div>
-        <h3>Certified Repair & Safety Test</h3>
-        <p>We execute precision repairs using OEM-grade parts, perform carbon monoxide tests, verify full airflow and thermostat calibration, and restore cozy heat.</p>
+        <h3>Safe OEM Repair &amp; Test</h3>
+        <p>We install UL-listed replacement breakers, verify tight lug torque and safe voltage readings, and restore reliable power.</p>
       </div>
     </div>
   </div>
@@ -215,64 +213,64 @@ permalink: "about/index.html"
 <div style="padding:80px 0;background:var(--white)">
   <div class="container">
     <div class="sec-center" style="margin-bottom:44px">
-      <span class="sub-label"><i class="ph ph-flame" style="font-size:12px"></i> Our Services</span>
-      <h2>Comprehensive Heating & HVAC Services Nationwide</h2>
-      <p class="sec-desc">From emergency furnace flame restoration to whole-home heating installations — we handle it all.</p>
+      <span class="sub-label"><i class="ph ph-lightning" style="font-size:12px"></i> Our Services</span>
+      <h2>Comprehensive Circuit Breaker Services Nationwide</h2>
+      <p class="sec-desc">From emergency tripping breaker fixes to 200-amp electrical panel upgrades — we cover every breaker job.</p>
     </div>
     <div class="about-services-grid">
       <div class="about-svc-item">
-        <i class="ph ph-flame" style="font-size:28px;color:var(--primary)"></i>
-        <span>Furnace Repair & Service</span>
+        <i class="ph ph-lightning" style="font-size:28px;color:var(--primary)"></i>
+        <span>Circuit Breaker Repair</span>
       </div>
       <div class="about-svc-item">
-        <i class="ph ph-fire" style="font-size:28px;color:var(--primary)"></i>
-        <span>Furnace Installation</span>
+        <i class="ph ph-warning-octagon" style="font-size:28px;color:var(--primary)"></i>
+        <span>Tripping Breaker Fix</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-power" style="font-size:28px;color:var(--primary)"></i>
+        <span>Main Breaker Replacement</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-plugs-connected" style="font-size:28px;color:var(--primary)"></i>
+        <span>200A Panel Upgrades</span>
       </div>
       <div class="about-svc-item">
         <i class="ph ph-siren" style="font-size:28px;color:var(--primary)"></i>
-        <span>Emergency Heating Repair</span>
-      </div>
-      <div class="about-svc-item">
-        <i class="ph ph-gear" style="font-size:28px;color:var(--primary)"></i>
-        <span>Heating Tune-Up & Check</span>
-      </div>
-      <div class="about-svc-item">
-        <i class="ph ph-arrows-clockwise" style="font-size:28px;color:var(--primary)"></i>
-        <span>Heat Pump Services</span>
-      </div>
-      <div class="about-svc-item">
-        <i class="ph ph-drop" style="font-size:28px;color:var(--primary)"></i>
-        <span>Boiler & Radiator Repair</span>
-      </div>
-      <div class="about-svc-item">
-        <i class="ph ph-thermometer" style="font-size:28px;color:var(--primary)"></i>
-        <span>Smart Thermostat Service</span>
-      </div>
-      <div class="about-svc-item">
-        <i class="ph ph-wind" style="font-size:28px;color:var(--primary)"></i>
-        <span>Ductless Mini-Splits</span>
-      </div>
-      <div class="about-svc-item">
-        <i class="ph ph-fan" style="font-size:28px;color:var(--primary)"></i>
-        <span>Air Duct Cleaning</span>
-      </div>
-      <div class="about-svc-item">
-        <i class="ph ph-sparkle" style="font-size:28px;color:var(--primary)"></i>
-        <span>Indoor Air Quality</span>
+        <span>24/7 Emergency Repair</span>
       </div>
       <div class="about-svc-item">
         <i class="ph ph-shield-check" style="font-size:28px;color:var(--primary)"></i>
-        <span>Gas Furnace Inspection</span>
+        <span>AFCI &amp; GFCI Breakers</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-squares-four" style="font-size:28px;color:var(--primary)"></i>
+        <span>Subpanel Installation</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-arrows-clockwise" style="font-size:28px;color:var(--primary)"></i>
+        <span>FPE / Zinsco Replacement</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-charging-station" style="font-size:28px;color:var(--primary)"></i>
+        <span>Dedicated 240V Circuits</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-thermometer-hot" style="font-size:28px;color:var(--primary)"></i>
+        <span>Thermal Bus Inspection</span>
+      </div>
+      <div class="about-svc-item">
+        <i class="ph ph-shield-plus" style="font-size:28px;color:var(--primary)"></i>
+        <span>Panel Surge Protection</span>
       </div>
       <div class="about-svc-item">
         <i class="ph ph-buildings" style="font-size:28px;color:var(--primary)"></i>
-        <span>Commercial HVAC Heating</span>
+        <span>Commercial Switchgear</span>
       </div>
     </div>
     <div style="text-align:center;margin-top:40px">
       <a class="readon red-btn" href="/services/">
         <i class="ph ph-arrow-right" style="font-size:17px"></i>
-        View All Heating Services
+        View All Breaker Services
       </a>
     </div>
   </div>
@@ -281,8 +279,8 @@ permalink: "about/index.html"
 {# ── CTA #}
 <div class="cta-strip">
   <div class="container">
-    <h2>Furnace Not Heating? Get Fast Emergency Service</h2>
-    <p>Our licensed HVAC technicians are standing by 24/7 with fully equipped mobile units. Same day heating service nationwide.</p>
+    <h2>Breaker Tripping or Buzzing? Get Fast Emergency Help</h2>
+    <p>Our licensed electricians are standing by 24/7 with stocked service vans. Same-day breaker repair nationwide.</p>
     <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
       {{ site.PHONE }} — Call Now Free

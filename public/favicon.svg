@@ -1,7 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <rect width="256" height="256" rx="48" fill="#0f172a"/>
-  <!-- Outer Flame -->
-  <path d="M136,24C136,24,80,84,80,140a56,56,0,0,0,112,0C192,96,152,60,136,24Z" fill="#ea580c"/>
-  <!-- Inner Flame Core -->
-  <path d="M136,88c0,0-28,32-28,60a28,28,0,0,0,56,0C164,124,144,106,136,88Z" fill="#facc15"/>
+  <defs>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="55%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#facc15"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="48" fill="#090f1d"/>
+  <rect x="24" y="24" width="208" height="208" rx="34" fill="none" stroke="#1e3a8a" stroke-width="8"/>
+  <path d="M148,36 L68,140 L124,140 L108,220 L188,116 L132,116 Z" fill="url(#boltGrad)"/>
 </svg>

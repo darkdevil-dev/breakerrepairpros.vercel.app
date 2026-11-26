@@ -3,60 +3,52 @@ export function getTestimonialsPool(city, state, brand) {
 
   return [
     {
-      text: `Our furnace broke down during a freezing 15-degree night in ${location}. We called ${brand} at 2 AM, and an emergency technician arrived in 40 minutes. He replaced a broken hot surface igniter and had our home warm again by 3:30 AM. Absolute lifesavers!`,
-      author: `Sarah M.`
+      text: `Our 200-amp main breaker started buzzing and half the house lost power in ${location}. Calling ${brand} got a licensed electrician out the same evening to replace the failing main breaker and torque every lug cleanly.`,
+      author: `S. Miller · Homeowner`
     },
     {
-      text: `We hired ${brand} to replace our noisy 20-year-old gas furnace with a new high-efficiency two-stage unit. The crew was on time, super respectful of our ${location} home, and the new heating system runs whisper quiet. Our gas bill dropped by nearly 30%!`,
-      author: `David P.`
+      text: `Our AC breaker kept tripping every hot afternoon in ${location}. The dispatched tech found a pitted bus stab and weak 40-amp double-pole breaker, swapped in an OEM unit, and verified the amp draw.`,
+      author: `D. Patel · Residential Client`
     },
     {
-      text: `Our furnace started making a terrible screeching noise and then completely shut off. The technician identified a seized blower motor, had the replacement part right on his service truck, and fixed it the same afternoon. Honest pricing with zero hidden fees.`,
-      author: `Jennifer L.`
+      text: `We noticed a burnt smell near our utility closet and a warm 20-amp breaker. An emergency electrician traced a loose terminal wire, replaced the damaged breaker, and ran a thermal check with upfront pricing.`,
+      author: `J. Lopez · Homeowner`
     },
     {
-      text: `I woke up to our carbon monoxide detector beeping. We called the fire department and then ${brand}. Their technician located a hairline crack in our furnace's heat exchanger that another contractor missed. They saved our family from serious danger.`,
-      author: `Michael T.`
+      text: `A pre-closing inspection flagged double-tapped breakers and an old Federal Pacific panel in ${location}. ${brand} connected us with a contractor who completed a clean 200-amp upgrade with surge protection.`,
+      author: `M. Thompson · Property Buyer`
     },
     {
-      text: `Upfront pricing and prompt service. The technician came out for a winter heating tune-up in ${location}, thoroughly cleaned the flame sensor, and dialed in the gas pressure. Outstanding professionalism and customer service.`,
-      author: `Robert K.`
+      text: `Our bedroom AFCI breaker kept tripping unpredictably. Instead of guessing, the electrician traced a pinched wire inside a wall outlet box in ${location} and resolved the arc fault permanently.`,
+      author: `R. Kim · Homeowner`
     },
     {
-      text: `Our heat pump stopped heating and was blowing lukewarm air during a cold snap in ${location}. ${brand} diagnosed a stuck reversing valve and low refrigerant, repaired the leak, and got the system back to blowing toasty warm air.`,
-      author: `Amanda B.`
+      text: `After heavy rain, our kitchen GFCI breaker wouldn't reset in ${location}. The pro found moisture inside an exterior receptacle tied to that circuit and replaced the faulty GFCI breaker on the spot.`,
+      author: `A. Brooks · Homeowner`
     },
     {
-      text: `Fast, clean, and reasonably priced. They installed a multi-zone ductless mini-split system in our new home addition in ${location}. The heating performance in winter has been flawless. Best HVAC contractor in the area!`,
-      author: `Thomas W.`
+      text: `Had a dedicated 50-amp breaker and Level 2 EV circuit added to our garage panel in ${location}. Neat conduit work, proper load check, and clear circuit directory labeling.`,
+      author: `T. Wright · EV Owner`
     },
     {
-      text: `I manage a commercial restaurant in ${location} and our rooftop heating unit shut down on a busy winter weekend. Their commercial HVAC emergency team arrived fast, diagnosed a blown control board, and had it running before dinner rush. Incredible reliability.`,
-      author: `Jessica R.`
+      text: `Our commercial walk-in cooler breaker tripped repeatedly during a busy Friday service in ${location}. A commercial electrician arrived quickly, replaced the failing bolt-on breaker, and checked phase balance.`,
+      author: `J. Rivera · Restaurant Manager`
     },
     {
-      text: `We called for a second opinion after another company claimed we needed a $9,000 new furnace. The technician from ${brand} inspected it and found it was simply a faulty flame sensor and dirty filter. Replaced for under $200! Incredible honesty and integrity.`,
-      author: `Daniel C.`
+      text: `Another quote suggested full rewiring for a tripping living room breaker. The electrician dispatched through ${brand} found a shorted dimmer switch and weak 15A breaker and fixed it the same day.`,
+      author: `D. Carter · Homeowner`
     },
     {
-      text: `I tried installing a smart thermostat myself and blew the low-voltage fuse on my furnace control board. The tech from ${brand} was so patient and understanding, replaced the fuse, wired the thermostat correctly with a C-wire, and tested the heat. Highly recommended!`,
-      author: `Emily S.`
+      text: `Our 1960s house in ${location} still had screw-in fuses blowing whenever kitchen appliances ran together. Upgrading to a modern 200-amp breaker box with proper grounding solved it completely.`,
+      author: `E. Sanders · Homeowner`
     },
     {
-      text: `Our hydronic boiler started leaking water and losing pressure in the dead of winter. ${brand} dispatched a master heating technician to our ${location} home who replaced the failed expansion tank and air relief valve. Fantastic workmanship.`,
-      author: `Christopher H.`
+      text: `Needed a 100-amp subpanel installed in our detached workshop in ${location} because our main breaker panel was out of space. Clean wiring, isolated ground/neutral bars, and passed inspection.`,
+      author: `C. Hayes · Workshop Owner`
     },
     {
-      text: `Installed a whole-home bypass humidifier and MERV-13 air cleaner on our existing furnace ductwork in ${location}. Our indoor winter air feels so much more comfortable, no more dry throats or static electricity.`,
-      author: `Melissa G.`
-    },
-    {
-      text: `When severe winter storms rolled through ${location}, our furnace wouldn't ignite due to frozen exterior vent pipes. Their on-call technician arrived swiftly, cleared the ice buildup, and installed protective pipe hoods to prevent future freezing.`,
-      author: `Richard V.`
-    },
-    {
-      text: `We bought a fixer-upper in ${location} with an ancient heating system. ${brand} came in, performed a full heating load calculation, and installed a modern high-efficiency furnace with new duct transitions. Complete peace of mind.`,
-      author: `Laura N.`
+      text: `Storm surges took out two branch breakers in ${location}. The electrician replaced the damaged breakers and added a Type 2 panel-mounted surge protector right inside the load center.`,
+      author: `M. Grant · Homeowner`
     }
   ];
 }

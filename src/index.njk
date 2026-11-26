@@ -1,37 +1,60 @@
 ---
 layout: layout.njk
-title: "HVAC Experts Pros | Reliable Local Heating & Furnace Repair Services"
-description: "Connect with certified, local heating & HVAC technicians for fast furnace repairs, seasonal maintenance, boiler service, and 24/7 emergency heating support nationwide."
+title: "Breaker Repair Pros | 24/7 USA Circuit Breaker Repair & Panel Upgrades"
+description: "Connect with state-licensed US electricians for same-day circuit breaker repair, tripping breaker diagnostics, main breaker replacement, and 200A electrical panel upgrades across the United States."
 ---
+
+{% set homeFaqs = [
+  {
+    "q": "Why does a circuit breaker keep tripping repeatedly?",
+    "a": "A circuit breaker trips to protect your wiring from overheating. Common causes include an overloaded branch circuit drawing excess amperage, a dead short circuit inside an outlet or appliance, a ground fault, or a worn internal trip mechanism that can no longer hold rated load."
+  },
+  {
+    "q": "Is a buzzing, hot, or burning-smelling breaker box an emergency?",
+    "a": "Yes. Buzzing, sizzling, warmth on the breaker face, or a burnt plastic odor indicates loose lug torque, oxidized bus stabs, or electrical arcing inside the load center. Turn off the affected breaker if safe, clear the area if sparks or smoke appear, and call a licensed electrician immediately."
+  },
+  {
+    "q": "Can a single faulty circuit breaker be replaced without replacing the whole panel?",
+    "a": "Yes—when the main bus bars show no heat pitting or arcing damage and a UL-listed OEM breaker is still available for your panel brand (such as Square D, Eaton, Siemens, or GE), an electrician can test the circuit and swap the defective breaker cleanly."
+  },
+  {
+    "q": "When should a home upgrade from a 100-amp to a 200-amp electrical panel?",
+    "a": "A 200A heavy-up is typically recommended when your existing 100A panel has no open slots, shows double-tapped breakers, experiences dimming lights when HVAC or appliances start, uses recalled Federal Pacific (FPE) or Zinsco equipment, or needs capacity for an EV charger or heat pump."
+  },
+  {
+    "q": "Do your participating electricians follow US National Electrical Code (NEC) standards?",
+    "a": "Yes. Independent electricians in our US network follow applicable National Electrical Code (NEC) rules and state/municipal inspection requirements, including AFCI/GFCI protection, conductor ampacity sizing, and proper neutral/ground isolation."
+  }
+] %}
 
 {# ── JSON-LD Schemas ────────────────────────────────────────────────────── #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ site.BRAND }}",
-  "alternateName": ["HVAC Experts Pros", "HVAC Experts Pro", "HVAC Experts"],
-  "url": "{{ site.DOMAIN }}/"
+  "@type": "Service",
+  "name": "Circuit Breaker Repair & Electrical Panel Services",
+  "serviceType": "Circuit Breaker Repair",
+  "provider": { "@id": "{{ site.DOMAIN }}/#organization" },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "description": "24/7 referral network connecting US property owners with licensed electricians for circuit breaker repair, tripping breaker troubleshooting, main breaker swaps, and 200A panel upgrades."
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  "name": "{{ site.BRAND }}",
-  "alternateName": ["HVAC Experts Pros", "HVAC Experts Pro", "HVAC Experts"],
-  "url": "{{ site.DOMAIN }}/",
-  "image": "{{ site.DOMAIN }}/favicon.svg",
-  "telephone": "{{ site.PHONE }}",
-  "priceRange": "$$",
-  "logo": "{{ site.DOMAIN }}/favicon.svg",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "{{ site.PHONE }}",
-    "contactType": "customer service",
-    "areaServed": "US",
-    "availableLanguage": "en"
-  }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in homeFaqs %}
+    {
+      "@type": "Question",
+      "name": {{ faq.q | dump | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq.a | dump | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -46,48 +69,47 @@ description: "Connect with certified, local heating & HVAC technicians for fast 
 
 {# ── Service Icon Map ──────────────────────────────────────────────────── #}
 {% set serviceIcons = {
-  'furnace-repair': 'ph-flame',
-  'furnace-installation': 'ph-gear',
-  'emergency-heating-repair': 'ph-siren',
-  'heating-tuneup-maintenance': 'ph-wrench',
-  'heat-pump-repair': 'ph-arrows-clockwise',
-  'boiler-repair-service': 'ph-drop',
-  'thermostat-repair-replacement': 'ph-thermometer',
-  'ductless-mini-split': 'ph-wind',
-  'air-duct-cleaning-repair': 'ph-fan',
-  'indoor-air-quality': 'ph-sparkle',
-  'gas-furnace-inspection': 'ph-shield-check',
-  'commercial-hvac-services': 'ph-buildings'
+  'circuit-breaker-repair': 'ph-lightning',
+  'tripping-breaker-troubleshooting': 'ph-warning-octagon',
+  'main-breaker-replacement': 'ph-power',
+  'electrical-panel-upgrade': 'ph-plugs-connected',
+  'emergency-breaker-repair': 'ph-siren',
+  'afci-gfci-breaker-service': 'ph-shield-check',
+  'subpanel-installation-repair': 'ph-squares-four',
+  'fuse-box-to-breaker-conversion': 'ph-arrows-clockwise',
+  'dedicated-circuit-breakers': 'ph-charging-station',
+  'burnt-breaker-bus-bar-repair': 'ph-thermometer-hot',
+  'whole-home-surge-breakers': 'ph-shield-plus',
+  'commercial-breaker-panel-service': 'ph-buildings'
 } %}
 
 {# ── Banner ────────────────────────────────────────────────────────────── #}
-
 <div class="rs-banner">
   <div class="banner-bg">
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/images/mobile_hero.webp">
-      <img src="/assets/images/global_hero.webp" alt="Certified Heating and Furnace Technicians" width="1200" height="800" fetchpriority="high" decoding="async">
+      <img src="/assets/images/global_hero.webp" alt="Licensed US Electrician Inspecting Residential Circuit Breaker Panel" width="1200" height="800" fetchpriority="high" decoding="async">
     </picture>
   </div>
   <div class="container" style="position:relative; z-index:3">
     <div class="banner-content-centered">
       <div class="sub-label">
-        <span class="live-dot"></span> Certified Heating &amp; Furnace Specialists Nationwide
+        <span class="live-dot"></span> Licensed US Circuit Breaker &amp; Panel Specialists
       </div>
-      <h1 class="title">Professional Heating &amp; Furnace <span>Repair Services</span></h1>
+      <h1 class="title">Fast, Code-Compliant <span>Circuit Breaker Repair</span> Across the USA</h1>
       <p class="description">
-        Prompt, dependable heating service from licensed independent HVAC contractors. From 24/7 emergency winter furnace repairs to seasonal tune-ups and system replacements, we help keep your home warm, safe, and comfortable.
+        Stop tripping breakers, buzzing load centers, and electrical fire risks. Connect 24/7 with state-licensed local US electricians for same-day breaker replacement, main disconnect repairs, AFCI/GFCI troubleshooting, and 200-amp panel upgrades.
       </p>
       <div class="btn-part" style="justify-content:center; margin-top:36px;">
-        <a class="readon red-btn" href="{{ site.PHONE_HREF }}" aria-label="Call for service">
+        <a class="readon red-btn" href="{{ site.PHONE_HREF }}" aria-label="Call US breaker repair dispatch">
           <i class="ph ph-phone-call" style="font-size:20px"></i>
           <span>{{ site.PHONE }}</span>
         </a>
       </div>
       <div class="hero-trust-bar">
-        <div class="trust-item"><i class="ph ph-shield-check"></i> Licensed &amp; Screened Technicians</div>
-        <div class="trust-item"><i class="ph ph-clock"></i> 24/7 Rapid Emergency Dispatch</div>
-        <div class="trust-item"><i class="ph ph-receipt"></i> Upfront &amp; Transparent Estimates</div>
+        <div class="trust-item"><i class="ph ph-shield-check"></i> State-Licensed US Electricians</div>
+        <div class="trust-item"><i class="ph ph-clock"></i> 24/7 Emergency Breaker Dispatch</div>
+        <div class="trust-item"><i class="ph ph-receipt"></i> Upfront Flat-Rate Estimates</div>
       </div>
     </div>
   </div>
@@ -99,28 +121,28 @@ description: "Connect with certified, local heating & HVAC technicians for fast 
     <div class="counter-grid">
       <div class="counter-list">
         <div class="counter-text">
-          <div class="counter-icon"><i class="ph ph-shield-check" style="font-size:26px;color:#fbbf24"></i></div>
+          <div class="counter-icon"><i class="ph ph-shield-check" style="font-size:26px;color:#38bdf8"></i></div>
           <div class="counter-number">
             <div class="count-row"><span class="rs-count">100</span><span class="prefix">%</span></div>
-            <h5 class="title">Licensed &amp; Insured Network</h5>
+            <h5 class="title">NEC Code Compliant Pros</h5>
           </div>
         </div>
       </div>
       <div class="counter-list">
         <div class="counter-text">
-          <div class="counter-icon"><i class="ph ph-clock" style="font-size:26px;color:#fbbf24"></i></div>
+          <div class="counter-icon"><i class="ph ph-clock" style="font-size:26px;color:#38bdf8"></i></div>
           <div class="counter-number">
             <div class="count-row"><span class="rs-count">24</span><span class="prefix">/7</span></div>
-            <h5 class="title">Emergency Dispatch Ready</h5>
+            <h5 class="title">US Emergency Dispatch</h5>
           </div>
         </div>
       </div>
       <div class="counter-list">
         <div class="counter-text">
-          <div class="counter-icon"><i class="ph ph-map-pin" style="font-size:26px;color:#fbbf24"></i></div>
+          <div class="counter-icon"><i class="ph ph-map-pin" style="font-size:26px;color:#38bdf8"></i></div>
           <div class="counter-number">
-            <div class="count-row"><span class="rs-count">50</span><span class="prefix">States</span></div>
-            <h5 class="title">Nationwide Service Coverage</h5>
+            <div class="count-row"><span class="rs-count">USA</span><span class="prefix">Wide</span></div>
+            <h5 class="title">All US Regions Covered</h5>
           </div>
         </div>
       </div>
@@ -131,21 +153,21 @@ description: "Connect with certified, local heating & HVAC technicians for fast 
 {# ── Services Grid ─────────────────────────────────────────────────────── #}
 <div class="rs-services">
   <div class="container">
-    <h2>Comprehensive Heating &amp; Furnace Solutions</h2>
+    <h2>Specialized Circuit Breaker &amp; Panel Repair Services</h2>
     <div class="services-row">
       {% for svc in services %}
       <div class="services-slider">
         <div class="services-item">
           <a href="/services/{{ svc.slug }}/" class="card-link" aria-label="View {{ svc.title }}"></a>
-          
+
           {% if svc.image %}
           <div class="services-card-img">
-            <img src="/assets/images/{{ svc.image }}" alt="{{ svc.title }}" loading="lazy">
+            <img src="/assets/images/{{ svc.image }}" alt="{{ svc.title }}" loading="lazy" width="800" height="600">
           </div>
           {% endif %}
           <div class="services-icon-bar">
             <div class="svc-icon">
-              <i class="ph {{ serviceIcons[svc.slug] or 'ph-flame' }}"></i>
+              <i class="ph {{ serviceIcons[svc.slug] or 'ph-lightning' }}"></i>
             </div>
           </div>
           <div class="services-content">
@@ -171,12 +193,71 @@ description: "Connect with certified, local heating & HVAC technicians for fast 
   </div>
 </div>
 
+{# ── Diagnostic & Brand Compatibility E-E-A-T Guide ────────────────────── #}
+<div class="rs-choose">
+  <div class="container">
+    <div class="sec-center" style="max-width:740px;margin-bottom:44px">
+      <span class="sub-label" style="background:var(--primary-lt);color:var(--primary);border-color:rgba(37,99,235,0.25)"><i class="ph ph-magnifying-glass" style="font-size:12px"></i> Electrical Safety Guide</span>
+      <h2>Common Breaker Symptoms &amp; Supported US Load Centers</h2>
+      <p class="sec-desc">Identify why your circuit breaker is tripping before resetting it—and verify the OEM panel brands serviced across the United States.</p>
+    </div>
+
+    <div class="diagnostic-grid">
+      <div class="diagnostic-card">
+        <div class="diag-head">
+          <i class="ph ph-warning-octagon" style="color:var(--primary);font-size:20px"></i>
+          <h3>Tripping Immediately</h3>
+        </div>
+        <p><strong>Likely Cause:</strong> Direct short circuit or ground fault in wiring or plugged appliance.</p>
+        <p class="diag-action"><strong>Safe Next Step:</strong> Keep the breaker OFF and schedule resistance/short isolation.</p>
+      </div>
+      <div class="diagnostic-card">
+        <div class="diag-head">
+          <i class="ph ph-clock-countdown" style="color:var(--primary);font-size:20px"></i>
+          <h3>Trips After 10–30 Minutes</h3>
+        </div>
+        <p><strong>Likely Cause:</strong> Thermal overload from space heaters, AC units, or weakened trip coil.</p>
+        <p class="diag-action"><strong>Safe Next Step:</strong> Split heavy appliances or install a dedicated 20A/240V breaker.</p>
+      </div>
+      <div class="diagnostic-card">
+        <div class="diag-head">
+          <i class="ph ph-thermometer-hot" style="color:var(--primary);font-size:20px"></i>
+          <h3>Buzzing, Warm, or Burnt Smell</h3>
+        </div>
+        <p><strong>Likely Cause:</strong> Loose terminal lug torque, arcing contact, or pitted bus bar stab.</p>
+        <p class="diag-action"><strong>Safe Next Step:</strong> Request same-day thermal inspection and bus bar check.</p>
+      </div>
+      <div class="diagnostic-card">
+        <div class="diag-head">
+          <i class="ph ph-shield-check" style="color:var(--primary);font-size:20px"></i>
+          <h3>AFCI / GFCI Nuisance Trips</h3>
+        </div>
+        <p><strong>Likely Cause:</strong> Shared neutral wire, outdoor box moisture, or pinched cable staple.</p>
+        <p class="diag-action"><strong>Safe Next Step:</strong> Have a licensed electrician trace ground/arc faults cleanly.</p>
+      </div>
+    </div>
+
+    <div class="brand-box">
+      <h3><i class="ph ph-plugs-connected" style="color:var(--primary)"></i> UL-Listed US Breaker Brands Serviced &amp; Upgraded</h3>
+      <div class="brand-pills">
+        <span class="brand-pill">Square D (QO &amp; Homeline)</span>
+        <span class="brand-pill">Eaton (BR &amp; CH)</span>
+        <span class="brand-pill">Siemens &amp; Murray</span>
+        <span class="brand-pill">GE PowerMark</span>
+        <span class="brand-pill">Cutler-Hammer</span>
+        <span class="brand-pill">Leviton Smart Panels</span>
+        <span class="brand-pill">FPE &amp; Zinsco Replacements</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 {# ── States / USA Map ──────────────────────────────────────────────────── #}
-<div class="rs-addon-services">
+<div class="rs-addon-services" style="background:var(--gray-bg)">
   <div class="container">
     <h2>
       <i class="ph ph-map-trifold" style="font-size:28px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
-      Heating &amp; Furnace Specialists Across the United States
+      Find Circuit Breaker Repair Specialists Across the United States
     </h2>
 
     <div class="interactive-usa-map">
@@ -202,19 +283,46 @@ description: "Connect with certified, local heating & HVAC technicians for fast 
   </div>
 </div>
 
+{# ── Homepage FAQ ──────────────────────────────────────────────────────── #}
+<div class="rs-faq" style="background:var(--white)">
+  <div class="container">
+    <h2 class="faq-inner-title">
+      <i class="ph ph-chat-circle-dots" style="font-size:26px;color:var(--primary);margin-right:8px;vertical-align:middle"></i>
+      Circuit Breaker Repair &amp; Panel Upgrade FAQs
+    </h2>
+    <div class="faq-grid">
+      <div class="faq-img">
+        <img src="/assets/images/burnt-breaker-inspection.webp" alt="Electrician inspecting residential breaker box with thermal camera" loading="lazy" width="800" height="600">
+      </div>
+      <div class="accordion">
+        {% for faq in homeFaqs %}
+        <div class="acc-item">
+          <button class="acc-question" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+            {{ faq.q }}
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-answer">
+            <p>{{ faq.a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {# ── CTA Strip ─────────────────────────────────────────────────────────── #}
 <div class="cta-strip">
   <div class="container">
-    <h2>Need Immediate Heating Repairs or Maintenance?</h2>
-    <p>Connect with a qualified independent HVAC technician in your local area for prompt diagnostic and repair service.</p>
+    <h2>Breaker Tripping, Buzzing, or Won't Reset?</h2>
+    <p>Connect with a state-licensed US electrician in your local area for prompt breaker diagnostics and NEC-compliant repair.</p>
     <a class="readon red-btn" href="{{ site.PHONE_HREF }}">
       <i class="ph ph-phone-call" style="font-size:18px"></i>
-      Call For Immediate Assistance: {{ site.PHONE }}
+      Call US Dispatch: {{ site.PHONE }}
     </a>
   </div>
 </div>
 
 <script>
-  // If the user navigates back to the homepage, clear their contextual location
   localStorage.removeItem('userLoc');
 </script>

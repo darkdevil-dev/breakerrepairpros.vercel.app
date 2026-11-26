@@ -2,6 +2,7 @@ import { getFaqsPool } from '../../data/faqsPool.js';
 import { getTestimonialsPool } from '../../data/testimonialsPool.js';
 import { getWhyChoosePool } from '../../data/whyChoosePool.js';
 import { getWhoWeArePool } from '../../data/whoWeArePool.js';
+import { breakerSymptoms, panelBrands, getRegionalProfile } from '../../data/breakerGuides.js';
 
 function getSeededRandom(seedString) {
   let seed = 0;
@@ -26,80 +27,68 @@ function shuffleArray(array, randomFunc) {
 
 export default {
   eleventyComputed: {
+    geoRegion: (data) => `US-${data.state.abbr}`,
+    geoPlacename: (data) => `${data.state.name}, United States`,
     metaTitle: (data) => {
       const stateName = data.state.name;
-      const rand = getSeededRandom(data.state.slug);
-      const variation = Math.floor(rand() * 4);
-      
+      const rand = getSeededRandom(`st-title-${data.state.slug}`);
       const titles = [
-        `Furnace Repair & Heating Services in ${stateName} - ${data.site.BRAND}`,
-        `Emergency Furnace Repair ${stateName} | 24/7 Heating Service`,
-        `Furnace Service & Heating in ${stateName} | Same Day Dispatch`,
-        `Local Heating & Furnace Repair ${stateName} | 24/7 Experts`
+        `Circuit Breaker Repair & Panel Upgrades in ${stateName} | ${data.site.BRAND}`,
+        `24/7 Emergency Breaker Repair in ${stateName} | Licensed Electricians`,
+        `Breaker Box & Main Breaker Replacement in ${stateName}`,
+        `Tripping Breaker Repair Across ${stateName} | ${data.site.BRAND}`
       ];
-      return titles[variation];
+      return titles[Math.floor(rand() * titles.length)];
     },
     metaDesc: (data) => {
       const stateName = data.state.name;
-      const rand = getSeededRandom(data.state.slug);
-      const variation = Math.floor(rand() * 4);
-      
+      const rand = getSeededRandom(`st-desc-${data.state.slug}`);
       const descs = [
-        `Need furnace repair in ${stateName}? Contact ${data.site.BRAND} at ${data.site.PHONE} for 24/7 emergency furnace service, heating tune-ups, and heat pump repairs. Fast local dispatch!`,
-        `Looking for emergency heating or furnace repair in ${stateName}? We provide 24/7 winter heating restoration, heat exchanger checks, and burner service. Call now for same day service!`,
-        `Top-rated furnace repair & heating service in ${stateName}. Our certified HVAC technicians offer same day service for gas furnaces, heat pumps, and boilers. Call 24/7.`,
-        `Reliable furnace repair and heating specialists across ${stateName}. 24/7 emergency heating response, upfront flat-rate pricing, and guaranteed parts & labor.`
+        `Need circuit breaker repair in ${stateName}? Call ${data.site.PHONE} to connect with licensed electricians across ${data.state.cities.length} cities for tripping breakers & 200A upgrades.`,
+        `24/7 emergency breaker repair and electrical panel service in ${stateName}. Troubleshoot burnt breakers, buzzing panels, AFCI/GFCI trips, and main disconnect failures.`,
+        `Licensed local breaker repair specialists serving ${stateName}. Square D, Eaton, Siemens, GE, FPE & Zinsco panel upgrades with upfront flat-rate quotes.`,
+        `Reliable circuit breaker repair across ${stateName}. Same-day tripping breaker diagnostics, dedicated 240V circuits, and thermal load-center safety checks.`
       ];
-      return descs[variation];
+      return descs[Math.floor(rand() * descs.length)];
     },
     h1Title: (data) => {
       const stateName = data.state.name;
-      const rand = getSeededRandom(data.state.slug);
-      const variation = Math.floor(rand() * 3);
-      
+      const rand = getSeededRandom(`st-h1-${data.state.slug}`);
       const h1s = [
-        `Furnace Repair & Heating Services in ${stateName}`,
-        `Top Rated Heating & Furnace Experts in ${stateName}`,
-        `24/7 Emergency Furnace Repair in ${stateName}`
+        `Circuit Breaker Repair Services in ${stateName}`,
+        `Licensed Breaker & Panel Specialists in ${stateName}`,
+        `24/7 Emergency Breaker Repair Across ${stateName}`
       ];
-      return h1s[variation];
+      return h1s[Math.floor(rand() * h1s.length)];
     },
-    
     faqs: (data) => {
       const state = data.state;
-      const rand = getSeededRandom(state.slug);
+      const rand = getSeededRandom(`st-faq-${state.slug}`);
       const allFaqs = getFaqsPool(null, state, data.site.BRAND, data.site.PHONE);
-      return shuffleArray(allFaqs, rand).slice(0, 5);
+      return shuffleArray(allFaqs, rand).slice(0, 6);
     },
     testimonials: (data) => {
       const state = data.state;
-      const rand = getSeededRandom(state.slug);
+      const rand = getSeededRandom(`st-testi-${state.slug}`);
       const allTestimonials = getTestimonialsPool(null, state, data.site.BRAND);
       return shuffleArray(allTestimonials, rand).slice(0, 3);
     },
     whyChooseContent: (data) => {
       const state = data.state;
-      const rand = getSeededRandom(state.slug);
+      const rand = getSeededRandom(`st-why-${state.slug}`);
       const allWhyChoose = getWhyChoosePool(null, state, data.site.BRAND);
       return allWhyChoose[Math.floor(rand() * allWhyChoose.length)];
     },
     whoWeAreContent: (data) => {
       const state = data.state;
-      const rand = getSeededRandom(state.slug);
+      const rand = getSeededRandom(`st-who-${state.slug}`);
       const allWhoWeAre = getWhoWeArePool(null, state, data.site.BRAND);
       return allWhoWeAre[Math.floor(rand() * allWhoWeAre.length)];
     },
-    localRiskText: (data) => {
-      const state = data.state;
-      let text = `${state.name} homeowners and businesses rely on our licensed HVAC technicians for all heating and furnace needs — from emergency burner repairs and igniter replacements to complete seasonal tune-ups and system replacements.`;
-      const coldStates = ['WI','MN','MI','NY','IL','ND','SD','OH','PA','ME','VT','NH','IA','MA','MT','WY','CO','ID'];
-      const hotStates = ['FL','TX','AZ','NV','NM'];
-      if (coldStates.includes(state.abbr)) {
-        text = `During severe winter storms and sub-zero freezes, ${state.name} homes are especially vulnerable to furnace lockouts, cracked heat exchangers, and frozen heat pumps. Our certified technicians respond fast with 24/7 emergency heating repairs, OEM igniter replacements, and safety testing to keep your home warm and safe.`;
-      } else if (hotStates.includes(state.abbr)) {
-        text = `When sudden winter cold fronts strike ${state.name}, heating systems and heat pumps that have sat idle during long hot summers frequently fail, blow cold air, or emit burning smells. Our HVAC specialists provide rapid emergency diagnostics, heating tune-ups, and heat pump reversing valve service.`;
-      }
-      return text;
-    }
+    regionalRisk: (data) => {
+      return getRegionalProfile(data.state.abbr, data.state.name);
+    },
+    stateSymptoms: () => breakerSymptoms,
+    stateBrands: () => panelBrands
   }
 };
