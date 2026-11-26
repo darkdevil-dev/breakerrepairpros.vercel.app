@@ -154,14 +154,23 @@ eleventyComputed:
           </div>
           <div class="services-content">
             <h3 class="title">
-              <a href="/services/{{ svc.slug }}/">{{ svc.title }}</a>
+              <a href="/services/{{ svc.slug }}/">{{ svc.title }} in {{ item.city.name }}, {{ item.state.abbr }}</a>
             </h3>
             <p class="description">
               {{ svc.description }}
+              {% if loop.index0 % 4 == 0 %}
+                Same-day dispatch across {{ item.city.name }}, {{ item.state.abbr }}{% if item.city.zip %} ({{ item.city.zip }}){% endif %}.
+              {% elif loop.index0 % 4 == 1 %}
+                Licensed local service in {{ item.city.name }}{% if item.city.county %}, {{ item.city.county }} County{% endif %}.
+              {% elif loop.index0 % 4 == 2 %}
+                24/7 emergency availability for {{ item.city.name }}, {{ item.state.abbr }} homes and businesses.
+              {% else %}
+                Upfront local estimates anywhere in {{ item.city.name }}, {{ item.state.abbr }}.
+              {% endif %}
             </p>
             <div class="services-btn">
-              <a href="/services/{{ svc.slug }}/">
-                <span class="btn-text">Service Details</span>
+              <a href="{{ site.PHONE_HREF }}">
+                <span class="btn-text">Get Quotes</span>
                 <span class="arrow-icon">
                   <i class="ph ph-arrow-right" style="font-size:12px"></i>
                 </span>
@@ -343,7 +352,7 @@ eleventyComputed:
         </div>
 
         <div class="local-diag-box">
-          <h3><i class="ph ph-wrench" style="color:var(--primary)"></i> Breaker Symptom Quick Check for {{ item.city.name }}</h3>
+          <h3><i class="ph ph-wrench" style="color:var(--primary)"></i> Breaker Symptom Quick Check &amp; Local Service in {{ item.city.name }}</h3>
           <ul>
             {% for sym in citySymptoms %}
             <li>
@@ -351,6 +360,9 @@ eleventyComputed:
             </li>
             {% endfor %}
           </ul>
+          <p style="font-size:13.5px;color:var(--text-body);line-height:1.65;margin:10px 0;">
+            {{ localCoverageCopy }}
+          </p>
           <p class="diag-brands-line">
             <strong>Supported Panels:</strong>
             {% for b in cityBrands %}{{ b.name }}{% if not loop.last %} · {% endif %}{% endfor %}

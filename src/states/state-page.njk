@@ -189,14 +189,21 @@ eleventyComputed:
           </div>
           <div class="services-content">
             <h3 class="title">
-              <a href="/services/{{ svc.slug }}/">{{ svc.title }}</a>
+              <a href="/services/{{ svc.slug }}/">{{ svc.title }} in {{ state.name }}</a>
             </h3>
             <p class="description">
               {{ svc.description }}
+              {% if loop.index0 % 3 == 0 %}
+                Available 24/7 across {{ state.name }} cities.
+              {% elif loop.index0 % 3 == 1 %}
+                Licensed local technicians serving {{ state.name }} homeowners and businesses.
+              {% else %}
+                Upfront flat-rate estimates throughout {{ state.name }}.
+              {% endif %}
             </p>
             <div class="services-btn">
-              <a href="/services/{{ svc.slug }}/">
-                <span class="btn-text">Service Details</span>
+              <a href="{{ site.PHONE_HREF }}">
+                <span class="btn-text">Get Quotes</span>
                 <span class="arrow-icon">
                   <i class="ph ph-arrow-right" style="font-size:12px"></i>
                 </span>

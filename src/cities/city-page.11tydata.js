@@ -186,6 +186,19 @@ export default {
       const rand = getSeededRandom(`sym-${data.item.state.slug}-${data.item.city.slug}`);
       return shuffleArray(breakerSymptoms, rand).slice(0, 4);
     },
-    cityBrands: () => panelBrands
+    cityBrands: () => panelBrands,
+    localCoverageCopy: (data) => {
+      const city = data.item.city.name;
+      const state = data.item.state.abbr;
+      const zip = data.item.city.zip ? ` (${data.item.city.zip})` : '';
+      const rand = getSeededRandom(`cov-${data.item.state.slug}-${data.item.city.slug}`);
+      const variants = [
+        `Homeowners searching for circuit breaker repair near me, a 24-hour emergency electrician, or same-day tripping breaker troubleshooting in ${city}, ${state}${zip} can call ${data.site.PHONE} to reach local pros equipped for main breaker replacement, AFCI/GFCI repairs, and 200A panel upgrades.`,
+        `When you need local circuit breaker replacement, buzzing panel diagnostics, or an electrical panel upgrade in ${city}, ${state}${zip}, ${data.site.BRAND} connects you with licensed electricians handling burnt breakers, dedicated 240V circuits, and emergency power restoration.`,
+        `Whether you are looking up breaker box repair near ${city}, ${state}${zip}, an emergency electrician for a breaker that won't reset, or double-tapped breaker fixes for an inspection, call ${data.site.PHONE} for clear local estimates.`,
+        `From overloaded kitchen circuits and tripping AC breakers to FPE/Zinsco replacements and subpanel installs in ${city}, ${state}${zip}, local technicians provide fast breaker troubleshooting and OEM replacements day or night.`
+      ];
+      return variants[Math.floor(rand() * variants.length)];
+    }
   }
 };
